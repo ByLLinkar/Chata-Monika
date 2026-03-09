@@ -1,0 +1,152 @@
+/* Základné nastavenia */
+:root {
+    --primary: #2d5a27; /* Lesná zelená */
+    --secondary: #f4f1ea; /* Krémová */
+    --dark: #1a1a1a;
+    --white: #ffffff;
+    --accent: #d4a373; /* Drevený odtieň */
+}
+
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Navigácia */
+nav {
+    background: var(--white);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    margin-left: 20px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Hero sekcia */
+header {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000') center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    margin-top: 70px;
+}
+
+.hero-content h1 { font-size: 3.5rem; margin: 0; }
+.hero-content p { font-size: 1.2rem; margin: 20px 0; }
+
+.btn {
+    background: var(--primary);
+    color: var(--white);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn:hover { background: var(--accent); }
+
+/* Sekcie a mriežky */
+section {
+    padding: 80px 10%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.bg-light { background: var(--secondary); max-width: 100%; }
+.bg-dark { background: var(--dark); max-width: 100%; }
+.text-white { color: var(--white); }
+
+h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.card i {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.tip {
+    background: var(--white);
+    padding: 15px;
+    border-left: 5px solid var(--primary);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+.price-tag {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.pricing-content { text-align: center; }
+
+/* Footer */
+footer {
+    background: #111;
+    color: #888;
+    text-align: center;
+    padding: 30px 0;
+}
+
+/* Mobilné zobrazenie */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero-content h1 { font-size: 2.2rem; }
+    section { padding: 50px 5%; }
+}
