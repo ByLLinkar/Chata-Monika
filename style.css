@@ -192,9 +192,9 @@ header {
 }
 
 /* Definícia animácie a poradia fotiek */
-.slide-1 { background-image: url('img/interier1.jpg'); animation-delay: 0s; }
-.slide-2 { background-image: url('img/vyhlad.jpg'); animation-delay: 5s; }
-.slide-3 { background-image: url('img/terasa.jpg'); animation-delay: 10s; }
+.slide-1 { background-image: url('img/slide1.jpeg'); animation-delay: 0s; }
+.slide-2 { background-image: url('img/slide2.jpeg'); animation-delay: 5s; }
+.slide-3 { background-image: url('img/slide3.jpeg'); animation-delay: 10s; }
 
 @keyframes slideSequence {
     0%, 33.33% { opacity: 1; }
