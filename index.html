@@ -1,69 +1,167 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chata Monika</title>
-<style>
-body, html {
-    margin:0; padding:0;
-    font-family: Arial, sans-serif;
-    line-height:1.6;
-    background:#f5f5f5;
-    color:#333;
-}
-a {text-decoration:none; color:#007BFF;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chata Monika | Ubytovanie Liptovské Revúce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #27ae60;
+            --light: #ecf0f1;
+            --dark: #34495e;
+        }
 
-/* Header / Hero */
-header {
-    background: url('img/chata1.jpg') center/cover no-repeat;
-    height: 70vh;
-    display:flex; justify-content:center; align-items:center;
-    color:white; text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-    flex-direction: column;
-}
-header h1 {font-size:3em; margin-bottom:10px;}
-header p {font-size:1.2em;}
-header a {
-    background:#007BFF; color:white; padding:12px 25px; border-radius:5px;
-    margin-top:15px; display:inline-block;
-}
+        body, html {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+            color: var(--dark);
+            line-height: 1.6;
+        }
 
-/* Section */
-section {
-    padding:50px 20px;
-    max-width:1000px;
-    margin:auto;
-}
+        /* Navigácia */
+        nav {
+            background: rgba(255,255,255,0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 1100px; margin: auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 20px;
+        }
+        .nav-links a {
+            text-decoration: none; color: var(--primary);
+            margin-left: 20px; font-weight: bold; transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
 
-/* Galéria */
-.gallery {
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
-    gap:15px;
-}
-.gallery img {
-    width:100%; border-radius:8px;
-    transition: transform 0.3s;
-}
-.gallery img:hover {transform: scale(1.05);}
+        /* Hero sekcia */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1518732714860-b62714ce0c59?q=80&w=2000') center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center;
+        }
+        header h1 { font-size: 4rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        header p { font-size: 1.5rem; margin-top: 10px; }
 
-/* Footer */
-footer {
-    text-align:center;
-    padding:20px;
-    background:#222;
-    color:white;
-}
+        /* Sekcie */
+        section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+        h2 { border-bottom: 3px solid var(--accent); display: inline-block; padding-bottom: 10px; margin-bottom: 30px; }
 
-/* Responsive */
-@media (max-width:768px){
-    header h1 {font-size:2em;}
-}
-</style>
+        /* Vybavenie - Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .feature-item {
+            background: var(--light); padding: 20px; border-radius: 10px; text-align: center;
+        }
+        .feature-item i { font-size: 2rem; color: var(--accent); margin-bottom: 15px; }
+
+        /* Cenník */
+        .pricing-box {
+            background: var(--primary); color: white;
+            padding: 30px; border-radius: 15px; text-align: center; max-width: 500px; margin: auto;
+        }
+        .price { font-size: 2.5rem; color: var(--accent); font-weight: bold; }
+
+        /* Kontakt */
+        .contact-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;
+        }
+
+        footer { background: var(--primary); color: white; text-align: center; padding: 40px 0; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Pre mobil by to chcelo menu, zatiaľ schováme */
+        }
+    </style>
 </head>
 <body>
 
+<nav>
+    <div class="nav-container">
+        <div style="font-size: 1.5rem; font-weight: bold; color: var(--accent);">Chata Monika</div>
+        <div class="nav-links">
+            <a href="#about">O nás</a>
+            <a href="#equipment">Vybavenie</a>
+            <a href="#pricing">Cenník</a>
+            <a href="#contact">Kontakt</a>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <h1>Chata Monika</h1>
+    <p>Pokoj a oddych v Liptovských Revúcach</p>
+</header>
+
+<section id="about">
+    <h2>O chate</h2>
+    <p>Chata Monika sa nachádza v tichom prostredí na konci obce Liptovské Revúce (Vyšná), priamo pri lese a zurčiacom potoku. Je ideálnym miestom pre rodiny s deťmi a ľudí hľadajúcich pokoj v prírode Veľkej Fatry.</p>
+    <p>Celková kapacita chaty je <strong>6 až 8 osôb</strong>. V podkroví sa nachádzajú dve samostatné 3-lôžkové izby.</p>
+</section>
+
+<section id="equipment" style="background: #fff;">
+    <h2>Vybavenie objektu</h2>
+    <div class="features">
+        <div class="feature-item">
+            <i class="fas fa-couch"></i>
+            <h3>Spoločenská miestnosť</h3>
+            <p>Pohodlné sedenie, krbová pec pre útulnú atmosféru a TV.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-utensils"></i>
+            <h3>Kuchynka</h3>
+            <p>Kompletne vybavená: chladnička, dvojplatnička, varná kanvica.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-tree"></i>
+            <h3>Exteriér</h3>
+            <p>Zastrešená terasa, vonkajšie posedenie s ohniskom a grilom.</p>
+        </div>
+    </div>
+</section>
+
+<section id="pricing">
+    <div class="pricing-box">
+        <h2>Cenník ubytovania</h2>
+        <p>Cena za celú chatu / noc:</p>
+        <div class="price">od 60 €</div>
+        <p><i>* Cena závisí od sezóny a počtu nocí. Pre presnú ponuku nás kontaktujte.</i></p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Kontakt</h2>
+    <div class="contact-grid">
+        <div>
+            <p><i class="fas fa-map-marker-alt"></i> <strong>Adresa:</strong> Liptovské Revúce 534, 034 74</p>
+            <p><i class="fas fa-phone"></i> <strong>Telefón:</strong> +421 9xx xxx xxx</p>
+            <p><i class="fas fa-envelope"></i> <strong>E-mail:</strong> info@chata-monika.sk</p>
+        </div>
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2618.123456789!2d19.16!3d48.91!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4715000000000000%3A0x0!2zTGlwdG92c2vDqSBSZXbDunNlIDUzNA!5e0!3m2!1ssk!2ssk!4v1700000000000" width="100%" height="250" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Chata Monika - Liptovské Revúce</p>
+</footer>
+
+</body>
+</html>
 <header>
   <h1>Chata Monika</h1>
   <p>Ubytovanie v srdci Veľkej Fatry</p>
