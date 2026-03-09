@@ -200,11 +200,18 @@ header {
 .slideshow-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 5; /* Predvolený pomer */
     overflow: hidden;
     border-radius: 20px;
     box-shadow: var(--shadow);
     background: #e0e0e0;
+}
+
+/* Responzívne prispôsobenie pre mobily */
+@media (max-width: 768px) {
+    .slideshow-container {
+        aspect-ratio: 16 / 9; /* Na mobile viac na šírku */
+    }
 }
 
 .sidebar-slides {
@@ -213,7 +220,10 @@ header {
     background-size: cover;
     background-position: center;
     opacity: 0;
+    /* Plynulý prechod namiesto tvrdého prepínania */
+    transition: opacity 1s ease-in-out; 
     animation: slideSequence 15s infinite;
+    will-change: opacity; /* Optimalizácia pre GPU */
 }
 
 /* Optimalizované prelínanie fotiek */
@@ -222,9 +232,13 @@ header {
 .slide-3 { background-image: url('img/slide3.webp'); animation-delay: 10s; }
 
 @keyframes slideSequence {
-    0%, 33.33% { opacity: 1; z-index: 1; }
-    33.34%, 100% { opacity: 0; z-index: 0; }
+    0% { opacity: 0; }
+    5% { opacity: 1; }     /* Nábeh */
+    30% { opacity: 1; }    /* Zobrazenie */
+    35% { opacity: 0; }    /* Zánik */
+    100% { opacity: 0; }
 }
+
 
 /* --- OBSAHOVÁ ČASŤ --- */
 .section-header {
