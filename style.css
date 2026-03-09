@@ -359,10 +359,10 @@ section p {
 /* --- AKTIVITY --- */
 .activities {
     background: #f0f4f0;
-    padding: 30px;
+    padding: 40px; /* Väčší padding vo vnútri */
     border-left: 6px solid var(--primary);
     border-radius: 15px;
-    margin-top: 30px;
+    margin-top: 20px; /* Jasný odstup od cenníka nad ním */
 }
 
 .activities h3 {
