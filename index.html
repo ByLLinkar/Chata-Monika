@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chata Monika | Ubytovanie Liptovské Revúce</title>
+    <title>Chata Monika | Liptovské Revúce</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -11,59 +11,120 @@
 
 <nav>
     <div class="nav-container">
-        <div class="logo">Chata Monika</div>
+        <div class="logo">CHATA MONIKA</div>
         <div class="nav-links">
+            <a href="#home">Domov</a>
             <a href="#about">O chate</a>
-            <a href="#equipment">Vybavenie</a>
+            <a href="#gallery">Galéria</a>
             <a href="#pricing">Cenník</a>
-            <a href="#surroundings">Okolie</a>
             <a href="#contact">Kontakt</a>
         </div>
     </div>
 </nav>
 
-<header>
+<header id="home">
     <div class="hero-content">
-        <h1>Chata Monika</h1>
-        <p>Tradičné ubytovanie v lone Veľkej Fatry</p>
-        <a href="#contact" class="btn">Rezervovať pobyt</a>
+        <h1>Útulné ubytovanie v srdci prírody</h1>
+        <p>Zažite pravú atmosféru Liptova v tichom prostredí Veľkej Fatry.</p>
+        <a href="#contact" class="btn">Overiť dostupnosť</a>
     </div>
 </header>
 
-<section id="about">
-    <h2>O chate</h2>
-    <div class="about-text">
-        <p>Chata Monika sa nachádza v tichom prostredí na konci obce <strong>Liptovské Revúce</strong> (časť Vyšná), priamo pri lese a potoku. Je to ideálne miesto pre milovníkov turistiky, rodiny s deťmi a tých, ktorí hľadajú dokonalý relax.</p>
-        <p>Objekt ponúka kapacitu <strong>6 až 8 osôb</strong>. V podkroví nájdete dve samostatné 3-lôžkové izby, na prízemí je k dispozícii spoločenská miestnosť s krbom.</p>
-    </div>
-</section>
+<main>
+    <section id="about">
+        <div class="section-header">
+            <h2>O chate</h2>
+            <p>Vaša brána k oddychu</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Chata Monika sa nachádza na konci obce Liptovské Revúce (Vyšná), priamo pri lese a horskom potoku. Je to ideálne miesto pre rodiny s deťmi a turistov.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Kapacita 6-8 osôb</li>
+                    <li><i class="fas fa-check"></i> 2 samostatné trojlôžkové izby</li>
+                    <li><i class="fas fa-check"></i> Spoločenská miestnosť s krbovou pecou</li>
+                    <li><i class="fas fa-check"></i> Oplotený pozemok s parkovaním</li>
+                </ul>
+            </div>
+            <div class="about-stats">
+                <div class="stat-box"><strong>6-8</strong><span>Osôb</span></div>
+                <div class="stat-box"><strong>2</strong><span>Izby</span></div>
+                <div class="stat-box"><strong>60€</strong><span>od/noc</span></div>
+            </div>
+        </div>
+    </section>
 
-<section id="equipment" class="bg-light">
-    <h2>Vybavenie</h2>
-    <div class="grid">
-        <div class="card">
-            <i class="fas fa-fire"></i>
-            <h3>Interiér</h3>
-            <p>Krbová pec, TV, spoločenská miestnosť a kompletne vybavená kuchynka.</p>
+    <section id="gallery" class="bg-light">
+        <div class="section-header">
+            <h2>Fotogaléria</h2>
         </div>
-        <div class="card">
-            <i class="fas fa-bed"></i>
-            <h3>Izby</h3>
-            <p>2x trojlôžková izba v podkroví + prístelky v obývacej časti.</p>
+        <div class="photo-grid">
+            <div class="photo-card"><span>Exteriér</span></div>
+            <div class="photo-card"><span>Spoločenská miestnosť</span></div>
+            <div class="photo-card"><span>Kuchynka</span></div>
+            <div class="photo-card"><span>Izby v podkroví</span></div>
         </div>
-        <div class="card">
-            <i class="fas fa-hot-tub"></i>
-            <h3>Exteriér</h3>
-            <p>Zastrešená terasa, oplotený pozemok, ohnisko, gril a parkovanie.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="surroundings">
-    <h2>Tipy na výlety</h2>
-    <div class="grid">
-        <div class="tip"><strong>Donovaly (8 km)</strong> - lyžovanie, Fun Aréna, Habakuky.</div>
-        <div class="tip"><strong>Gothal Liptovská Osada</strong> - moderný vodný svet a wellness.</div>
+    <section id="pricing">
+        <div class="section-header">
+            <h2>Cenník ubytovania</h2>
+        </div>
+        <div class="pricing-table">
+            <div class="price-item">
+                <h3>Letná sezóna</h3>
+                <p class="price">60 € <span>/ objekt / noc</span></p>
+            </div>
+            <div class="price-item featured">
+                <h3>Zimná sezóna</h3>
+                <p class="price">80 € <span>/ objekt / noc</span></p>
+            </div>
+            <div class="price-item">
+                <h3>Mimosezóna</h3>
+                <p class="price">dohodou</p>
+            </div>
+        </div>
+        <p class="pricing-note">* Pri pobyte na jednu noc sa cena navyšuje o 10%. Rekreačný poplatok obci je 0,50€ / osoba / noc.</p>
+    </section>
+
+    <section id="contact" class="bg-light">
+        <div class="section-header">
+            <h2>Kontakt</h2>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Telefón</h4>
+                        <p>+421 905 123 456</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>E-mail</h4>
+                        <p>info@chata-monika.sk</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Adresa</h4>
+                        <p>Liptovské Revúce 534, 034 74</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Chata Monika. Vytvorené s láskou k horám.</p>
+</footer>
+
+</body>
+</html>        <div class="tip"><strong>Gothal Liptovská Osada</strong> - moderný vodný svet a wellness.</div>
         <div class="tip"><strong>Vlkolínec</strong> - pamiatka UNESCO vzdialená len pár minút autom.</div>
     </div>
 </section>
