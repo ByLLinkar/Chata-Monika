@@ -372,6 +372,35 @@ header {
     }
 }
 
+/* Štýl pre sociálne siete v kontakte */
+.contact-socials {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.contact-socials a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.contact-socials a i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    width: 30px;
+}
+
+.contact-socials a:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
 /* --- FOOTER --- */
 footer {
     padding: 60px 5%;
