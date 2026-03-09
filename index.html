@@ -3,125 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chata Monika | Liptovské Revúce</title>
+    <title>Chata Lesná Tichosť | Ubytovanie v srdci hôr</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-<nav>
-    <div class="nav-container">
-        <div class="logo">CHATA MONIKA</div>
-        <div class="nav-links">
-            <a href="#home">Domov</a>
-            <a href="#about">O chate</a>
-            <a href="#gallery">Galéria</a>
-            <a href="#pricing">Cenník</a>
-            <a href="#contact">Kontakt</a>
+    <div class="topbar">
+        <div class="topbar-content">
+            <span><i class="fas fa-map-marker-alt"></i> Nízke Tatry, Slovensko</span>
+            <span><i class="fas fa-phone"></i> +421 900 000 000</span>
         </div>
     </div>
-</nav>
 
-<header id="home">
-    <div class="hero-content">
-        <h1>Útulné ubytovanie v srdci prírody</h1>
-        <p>Zažite pravú atmosféru Liptova v tichom prostredí Veľkej Fatry.</p>
-        <a href="#contact" class="btn">Overiť dostupnosť</a>
-    </div>
-</header>
-
-<main>
-    <section id="about">
-        <div class="section-header">
-            <h2>O chate</h2>
-            <p>Vaša brána k oddychu</p>
-        </div>
-        <div class="about-grid">
-            <div class="about-text">
-                <p>Chata Monika sa nachádza na konci obce Liptovské Revúce (Vyšná), priamo pri lese a horskom potoku. Je to ideálne miesto pre rodiny s deťmi a turistov.</p>
-                <ul>
-                    <li><i class="fas fa-check"></i> Kapacita 6-8 osôb</li>
-                    <li><i class="fas fa-check"></i> 2 samostatné trojlôžkové izby</li>
-                    <li><i class="fas fa-check"></i> Spoločenská miestnosť s krbovou pecou</li>
-                    <li><i class="fas fa-check"></i> Oplotený pozemok s parkovaním</li>
-                </ul>
-            </div>
-            <div class="about-stats">
-                <div class="stat-box"><strong>6-8</strong><span>Osôb</span></div>
-                <div class="stat-box"><strong>2</strong><span>Izby</span></div>
-                <div class="stat-box"><strong>60€</strong><span>od/noc</span></div>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">CHATA<span>LESNÁ</span></div>
+            <div class="nav-links">
+                <a href="#domov">Domov</a>
+                <a href="#o-nas">O nás</a>
+                <a href="#cennik">Cenník</a>
+                <a href="#kontakt" class="btn-small">Rezervovať</a>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <section id="gallery" class="bg-light">
-        <div class="section-header">
-            <h2>Fotogaléria</h2>
+    <header id="domov">
+        <div class="hero-content">
+            <h1>Únik do prírody, ktorý si zaslúžite</h1>
+            <p>Zažite ticho lesa a komfort moderného ubytovania v objatí hôr.</p>
+            <a href="#cennik" class="btn">Pozrieť voľné termíny</a>
         </div>
-        <div class="photo-grid">
-            <div class="photo-card"><span>Exteriér</span></div>
-            <div class="photo-card"><span>Spoločenská miestnosť</span></div>
-            <div class="photo-card"><span>Kuchynka</span></div>
-            <div class="photo-card"><span>Izby v podkroví</span></div>
-        </div>
-    </section>
+    </header>
 
-    <section id="pricing">
-        <div class="section-header">
-            <h2>Cenník ubytovania</h2>
-        </div>
-        <div class="pricing-table">
-            <div class="price-item">
-                <h3>Letná sezóna</h3>
-                <p class="price">60 € <span>/ objekt / noc</span></p>
-            </div>
-            <div class="price-item featured">
-                <h3>Zimná sezóna</h3>
-                <p class="price">80 € <span>/ objekt / noc</span></p>
-            </div>
-            <div class="price-item">
-                <h3>Mimosezóna</h3>
-                <p class="price">dohodou</p>
-            </div>
-        </div>
-        <p class="pricing-note">* Pri pobyte na jednu noc sa cena navyšuje o 10%. Rekreačný poplatok obci je 0,50€ / osoba / noc.</p>
-    </section>
-
-    <section id="contact" class="bg-light">
-        <div class="section-header">
-            <h2>Kontakt</h2>
-        </div>
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <div class="info-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <h4>Telefón</h4>
-                        <p>+421 905 123 456</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>E-mail</h4>
-                        <p>info@chata-monika.sk</p>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Adresa</h4>
-                        <p>Liptovské Revúce 534, 034 74</p>
-                    </div>
+    <main class="main-layout">
+        
+        <aside class="sidebar-gallery">
+            <div class="sidebar-sticky">
+                <h3>Momentky z chaty</h3>
+                <div class="vertical-photos">
+                    <div class="photo-card"><img src="img/interier1.jpg" alt="Interiér"></div>
+                    <div class="photo-card"><img src="img/vyhlad.jpg" alt="Výhľad"></div>
+                    <div class="photo-card"><img src="img/terasa.jpg" alt="Terasa"></div>
+                    <div class="photo-card"><img src="img/wellness.jpg" alt="Wellness"></div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+        </aside>
 
-<footer>
-    <p>&copy; 2026 Chata Monika. Vytvorené s láskou k horám.</p>
-</footer>
+        <article class="content-area">
+            <section id="o-nas">
+                <div class="section-header">
+                    <h2>Viac ako len ubytovanie</h2>
+                    <p>Naša chata kombinuje tradičnú architektúru s moderným interiérom.</p>
+                </div>
+                <p>Ponúkame vám útulné priestory pre rodiny aj skupiny priateľov. K dispozícii je fínska sauna, krb a priestranná terasa s výhľadom na hrebeň hôr...</p>
+            </section>
+
+            <section id="cennik" class="bg-light">
+                <div class="section-header">
+                    <h2>Cenník a balíčky</h2>
+                </div>
+                <div class="pricing-table">
+                    <div class="price-item">
+                        <h3>Víkendový pobyt</h3>
+                        <div class="price">120€</div>
+                        <p>za noc / celá chata</p>
+                    </div>
+                    <div class="price-item featured">
+                        <h3>Týždenný relax</h3>
+                        <div class="price">99€</div>
+                        <p>za noc / celá chata</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <p>&copy; 2024 Chata Lesná Tichosť. Všetky práva vyhradené.</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
