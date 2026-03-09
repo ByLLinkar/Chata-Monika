@@ -79,17 +79,41 @@ nav {
     align-items: center;
 }
 
+/* --- LOGO SEKCIÁ (OPRAVENÁ A KLIKATEĽNÁ) --- */
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.6rem;         /* Mierne zväčšené pre lepšiu čitateľnosť */
     font-weight: 800;
     letter-spacing: 1px;
-    color: var(--primary);
     text-transform: uppercase;
+    display: flex;             /* Zabezpečí správne zarovnanie odkazu vnútri */
+    align-items: center;
 }
 
-.logo span {
+.logo a {
+    text-decoration: none;     /* Odstráni to hrozné podčiarknutie */
+    color: var(--primary);     /* Vráti logu tvoju lesnú zelenú */
+    display: block;
+    transition: var(--transition);
+    outline: none;             /* Odstráni bodkovaný rámček pri kliknutí */
+}
+
+.logo a span {
     font-weight: 300;
-    color: var(--accent);
+    color: var(--accent);      /* Zachová zlatistú farbu pre "MONIKA" */
+    margin-left: 2px;          /* Jemná medzera medzi slovami */
+}
+
+/* EFEKT PRI PREJDENÍ MYŠOU (HOVER) */
+.logo a:hover {
+    transform: translateY(-1px); /* Jemný pohyb nahor */
+    opacity: 0.9;                /* Decentné zosvetlenie */
+}
+
+/* RESPONSIVITA PRE MOBIL */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.3rem;     /* Na malých mobiloch sa logo o niečo zmenší, aby sa nezalamovalo */
+    }
 }
 
 .nav-links a {
