@@ -150,10 +150,34 @@ header {
 .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; font-size: 1.2rem; }
 .contact-item i { font-size: 1.5rem; color: var(--primary); width: 30px; }
 .map-container { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); height: 400px; }
-/* --- KONTAKT A SOCIÁLNE SIETE --- */
-.contact-socials { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
-.contact-socials a { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--dark); font-weight: 500; padding: 10px 15px; border-radius: 12px; transition: var(--transition) }
+/* --- TOTÁLNY RESET A ŠTÝLOVANIE LINKOV --- */
+.contact-socials a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none !important; /* Odstráni podčiarknutie */
+    color: var(--dark) !important;    /* Prebije modrú farbu prehliadača */
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 12px;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.05); /* Jemný okraj */
+}
 
+/* Keď na to prídeš myšou, zmení sa to na jemne zelené (tvoja primary) */
+.contact-socials a:hover {
+    background: var(--light);
+    border-color: var(--primary);
+    transform: translateX(5px); /* Jemný pohyb do strany */
+}
+
+/* Ikony v linkoch */
+.contact-socials a i {
+    font-size: 1.4rem;
+    color: var(--primary);
+    width: 30px;
+    text-align: center;
+}
 /* Hover efekt pre zjednotenie so zvyškom webu */
 .contact-socials a:hover { background: var(--light); color: var(--primary); }
 .contact-socials a i { font-size: 1.5rem; color: var(--primary); width: 30px; text-align: center; }
