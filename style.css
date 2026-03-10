@@ -124,9 +124,16 @@ header {
 .slide-3 { background-image: url('img/slide3.webp'); animation-delay: 10s; }
 
 @keyframes slideSequence {
-    0%, 33.33% { opacity: 1; z-index: 1; }
-    33.34%, 100% { opacity: 0; z-index: 0; }
+    /* Fotka je plne viditeľná */
+    0%, 25% { opacity: 1; z-index: 1; }
+    /* Fotka sa začína strácať */
+    33% { opacity: 0; z-index: 1; }
+    /* Fotka je skrytá a v pozadí */
+    34%, 99% { opacity: 0; z-index: 0; }
+    /* Návrat do stavu pred štartom */
+    100% { opacity: 0; z-index: 0; }
 }
+
 
 /* --- OBSAHOVÁ ČASŤ --- */
 .section-header { margin-bottom: 40px; }
