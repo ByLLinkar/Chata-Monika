@@ -28,19 +28,43 @@
         </div>
     </nav>
 
-    <section class="gallery-page">
-        <div class="section-header">
-            <h2>Naša fotogaléria</h2>
-            <p>Nazrite do interiéru a okolia chaty.</p>
+    <section class="gallery-section">
+    <div class="gallery-container">
+        <h1 class="gallery-title">Naša Galéria <span>Chata Monika</span></h1>
+
+        <div class="filter-menu">
+            <button class="filter-btn active" data-filter="all">Všetko</button>
+            <button class="filter-btn" data-filter="monika">Chata Monika</button>
+            <button class="filter-btn" data-filter="cast-a">Časť A</button>
+            <button class="filter-btn" data-filter="cast-b">Časť B</button>
+            <button class="filter-btn" data-filter="okolie">Okolie (Pripravujeme)</button>
         </div>
-        
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="img/galeria1.webp" alt="Interiér chaty" loading="lazy"></div>
-            <div class="gallery-item"><img src="img/galeria2.webp" alt="Vonkajšie posedenie" loading="lazy"></div>
-            <div class="gallery-item"><img src="img/galeria3.webp" alt="Veľká Fatra výhľad" loading="lazy"></div>
-            <div class="gallery-item"><img src="img/galeria4.webp" alt="Kuchyňa" loading="lazy"></div>
+
+        <div class="gallery-grid" id="gallery-grid">
+            <div class="gallery-item" data-category="monika">
+                <img src="img/monika-1.webp" alt="Chata Monika" loading="lazy">
+                <div class="overlay"><span>Zobraziť detail</span></div>
             </div>
-    </section>
+            <div class="gallery-item" data-category="cast-a">
+                <img src="img/cast-a-1.webp" alt="Časť A" loading="lazy">
+                <div class="overlay"><span>Zobraziť detail</span></div>
+            </div>
+            <div class="gallery-item" data-category="cast-b">
+                <img src="img/cast-b-1.webp" alt="Časť B" loading="lazy">
+                <div class="overlay"><span>Zobraziť detail</span></div>
+            </div>
+            <div class="gallery-item" data-category="okolie">
+                <div class="coming-soon">Už čoskoro...</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+</div>
+
 
     <footer>
         <p>&copy; 2026 Chata Monika.</p>
