@@ -1,21 +1,61 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Lightbox vytvoríme raz a používame ho stále
-    const lightbox = document.createElement('div');
-    lightbox.className = 'lightbox';
-    document.body.appendChild(lightbox);
+document.querySelectorAll(".slider-btn").forEach(btn => {
 
-    // 2. Kliknutie na akúkoľvek fotku
-    document.querySelectorAll('.slide img').forEach(img => {
-        img.addEventListener('click', () => {
-            lightbox.innerHTML = `<img src="${img.src}"><button class="close">&times;</button>`;
-            lightbox.classList.add('active');
-        });
-    });
+    btn.addEventListener("click", () => {
 
-    // 3. Zatvorenie
-    lightbox.addEventListener('click', (e) => {
-        if(e.target === lightbox || e.target.classList.contains('close')) {
-            lightbox.classList.remove('active');
+        const id = btn.dataset.target
+        const track = document.querySelector(`.slider-track[data-id="${id}"]`)
+        const container = track.parentElement
+
+        const scrollAmount = 320
+
+        if(btn.classList.contains("next")){
+            container.scrollBy({
+                left: scrollAmount,
+                behavior: "smooth"
+            })
         }
-    });
-});
+
+        if(btn.classList.contains("prev")){
+            container.scrollBy({
+                left: -scrollAmount,
+                behavior: "smooth"
+            })
+        }
+
+    })
+
+})
+
+
+
+/* LIGHTBOX */
+
+const slides = document.querySelectorAll(".slide img")
+
+const lightbox = document.createElement("div")
+lightbox.classList.add("lightbox")
+
+const lightboxImg = document.createElement("img")
+
+lightbox.appendChild(lightboxImg)
+document.body.appendChild(lightbox)
+
+
+
+slides.forEach(img => {
+
+    img.addEventListener("click", () => {
+
+        lightbox.classList.add("active")
+        lightboxImg.src = img.src
+
+    })
+
+})
+
+
+lightbox.addEventListener("click", () => {
+
+    lightbox.classList.remove("active")
+
+})
