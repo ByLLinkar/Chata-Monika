@@ -1,48 +1,185 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotogaléria | Chata Monika</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fotogaléria | Chata Monika</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 <body>
-    <div class="topbar">
-        <div class="topbar-content">
-            <span><i class="fas fa-map-marker-alt"></i> Liptovské Revúce</span>
-            <span><i class="fas fa-phone"></i> +421 905 555 555</span>
-        </div>
+
+<div class="topbar">
+    <div class="topbar-content">
+        <span><i class="fas fa-map-marker-alt"></i> Liptovské Revúce</span>
+        <span><i class="fas fa-phone"></i> +421 905 555 555</span>
     </div>
-    
-    <nav>
-        <div class="nav-container">
-            <div class="logo"><a href="index.html">CHATA<span>MONIKA</span></a></div>
-            <div class="nav-links">
-                <a href="index.html">Domov</a>
-                <a href="gallery.html" class="active">Fotogaléria</a>
-                <a href="index.html#kontakt" class="btn-small">Kontakt</a>
-            </div>
-        </div>
-    </nav>
+</div>
 
-    <main class="gallery-page">
-        <h1 class="gallery-title">Naša Galéria <span>Chata Monika</span></h1>
-        <section class="gallery-wrapper">
-    <div class="gallery-category">
-        <h2>Chata Monika</h2>
-        <div class="slider-container">
-            <div class="slider-track" data-id="monika">
-                <div class="slide"><img src="img/monika-1.webp"></div>
-                <div class="slide"><img src="img/monika-2.webp"></div>
-                </div>
+<nav>
+    <div class="nav-container">
+
+        <div class="logo">
+            <a href="index.html">CHATA<span>MONIKA</span></a>
         </div>
+
+        <div class="nav-links">
+            <a href="index.html">Domov</a>
+            <a href="gallery.html" class="active">Fotogaléria</a>
+            <a href="index.html#kontakt" class="btn-small">Kontakt</a>
+        </div>
+
     </div>
-    </section>
+</nav>
+
+
+<main class="gallery-page">
+
+<h1 class="gallery-title">Naša Galéria <span>Chata Monika</span></h1>
+
+
+<section class="gallery-wrapper">
+
+<!-- CHATA MONIKA -->
+<div class="gallery-category">
+
+<h2>Chata Monika</h2>
+
+<div class="slider-container">
+
+<button class="slider-btn prev" data-target="monika">
+<i class="fas fa-chevron-left"></i>
+</button>
+
+<div class="slider-track" data-id="monika">
+
+<div class="slide">
+<img src="img/monika-1.webp" alt="Chata Monika">
+</div>
+
+<div class="slide">
+<img src="img/monika-2.webp" alt="Chata Monika">
+</div>
+
+</div>
+
+<button class="slider-btn next" data-target="monika">
+<i class="fas fa-chevron-right"></i>
+</button>
+
+</div>
+
+</div>
 
 
 
-    <footer><p>&copy; 2026 Chata Monika.</p></footer>
-    <script src="script.js"></script>
+<!-- CAST A -->
+<div class="gallery-category">
+
+<h2>Časť A</h2>
+
+<div class="slider-container">
+
+<button class="slider-btn prev" data-target="cast-a">
+<i class="fas fa-chevron-left"></i>
+</button>
+
+<div class="slider-track" data-id="cast-a">
+
+<div class="slide">
+<img src="img/cast-a-1.webp" alt="Časť A">
+</div>
+
+<div class="slide">
+<img src="img/cast-a-2.webp" alt="Časť A">
+</div>
+
+</div>
+
+<button class="slider-btn next" data-target="cast-a">
+<i class="fas fa-chevron-right"></i>
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- CAST B -->
+<div class="gallery-category">
+
+<h2>Časť B</h2>
+
+<div class="slider-container">
+
+<button class="slider-btn prev" data-target="cast-b">
+<i class="fas fa-chevron-left"></i>
+</button>
+
+<div class="slider-track" data-id="cast-b">
+
+<div class="slide">
+<img src="img/cast-b-1.webp" alt="Časť B">
+</div>
+
+<div class="slide">
+<img src="img/cast-b-2.webp" alt="Časť B">
+</div>
+
+</div>
+
+<button class="slider-btn next" data-target="cast-b">
+<i class="fas fa-chevron-right"></i>
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- OKOLIE -->
+<div class="gallery-category">
+
+<h2>Okolie</h2>
+
+<div class="slider-container">
+
+<button class="slider-btn prev" data-target="okolie">
+<i class="fas fa-chevron-left"></i>
+</button>
+
+<div class="slider-track" data-id="okolie">
+
+<div class="slide">
+<img src="img/okolie-1.webp" alt="Okolie">
+</div>
+
+</div>
+
+<button class="slider-btn next" data-target="okolie">
+<i class="fas fa-chevron-right"></i>
+</button>
+
+</div>
+
+</div>
+
+
+</section>
+
+</main>
+
+
+<footer>
+<p>&copy; 2026 Chata Monika.</p>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
