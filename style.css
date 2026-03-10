@@ -242,8 +242,13 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     justify-content: center;
     gap: 12px;
     margin-bottom: 50px;
-    flex-wrap: wrap;
+    /* ÚPRAVA PRE TABLET: Ak je menu dlhé, umožní posúvanie do strán */
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: none; /* Skryje posuvník v prehliadačoch */
 }
+
+.filter-menu::-webkit-scrollbar { display: none; } /* Skryje posuvník pre Webkit */
 
 .filter-btn {
     padding: 10px 22px;
@@ -254,6 +259,7 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     cursor: pointer;
     font-weight: 600;
     transition: var(--transition);
+    white-space: nowrap; /* Zabezpečí, že text tlačidla nebude na dva riadky */
 }
 
 .filter-btn.active, .filter-btn:hover {
@@ -271,22 +277,32 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(12px);
-    cursor: zoom-out;
     padding: 20px;
 }
 
 #lightbox-img {
-    max-width: 90%;
-    max-height: 85%;
+    max-width: 100%;
+    max-height: 90vh;
     border-radius: 12px;
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
     transform: scale(0.9);
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Trieda, ktorú JS pridá pri otvorení */
 .lightbox.open #lightbox-img {
     transform: scale(1);
+}
+
+/* --- ZATVÁRACÍ KRÍŽIK (Optimalizovaný pre dotyk) --- */
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 3001;
+    padding: 10px; /* Zväčšená plocha pre kliknutie prstom */
 }
 
 /* --- ANIMÁCIE --- */
@@ -297,15 +313,18 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 
 .gallery-item {
     animation: fadeIn 0.6s ease forwards;
+    /* Pridané pre lepšiu odozvu na dotyk */
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* --- ZATVÁRACÍ KRÍŽIK (ak ho chceš v CSS) --- */
-.close-lightbox {
-    position: absolute;
-    top: 30px;
-    right: 40px;
-    color: white;
-    font-size: 3rem;
-    cursor: pointer;
-    z-index: 3001;
+/* ÚPRAVA PRE MOBIL/TABLET ZOBRAZENIE */
+@media (max-width: 768px) {
+    .filter-menu {
+        justify-content: flex-start; /* Menu začína zľava */
+        padding-left: 20px;
+    }
+    .filter-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
 }
