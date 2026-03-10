@@ -18,9 +18,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -46,15 +44,8 @@ body {
     height: 40px;
 }
 
-.topbar-content span {
-    margin-left: 20px;
-    font-weight: 300;
-}
-
-.topbar-content i {
-    margin-right: 5px;
-    color: var(--accent);
-}
+.topbar-content span { margin-left: 20px; font-weight: 300; }
+.topbar-content i { margin-right: 5px; color: var(--accent); }
 
 /* --- NAVIGÁCIA --- */
 nav {
@@ -79,48 +70,13 @@ nav {
     align-items: center;
 }
 
-.logo {
-    font-size: 1.6rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-}
+.logo { font-size: 1.6rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+.logo a { text-decoration: none; color: var(--primary); display: block; transition: var(--transition); }
+.logo a span { font-weight: 300; color: var(--accent); margin-left: 2px; }
 
-.logo a {
-    text-decoration: none;
-    color: var(--primary);
-    display: block;
-    transition: var(--transition);
-}
-
-.logo a span {
-    font-weight: 300;
-    color: var(--accent);
-    margin-left: 2px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    margin-left: 25px;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: var(--transition);
-}
-
-.nav-links a:hover {
-    color: var(--primary);
-}
-
-.btn-small {
-    background: var(--primary);
-    color: var(--white) !important;
-    padding: 10px 22px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-}
+.nav-links a { text-decoration: none; color: var(--dark); margin-left: 25px; font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+.nav-links a:hover { color: var(--primary); }
+.btn-small { background: var(--primary); color: var(--white) !important; padding: 10px 22px; border-radius: 50px; font-size: 0.85rem; }
 
 /* --- HERO SEKCIÁ --- */
 header {
@@ -134,22 +90,9 @@ header {
     padding: 110px 20px 0;
 }
 
-.hero-content h1 {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    margin-bottom: 20px;
-    font-weight: 800;
-}
-
-.btn {
-    background: var(--primary);
-    color: var(--white);
-    padding: 18px 45px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    display: inline-block;
-    transition: var(--transition);
-}
+.hero-content h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 20px; font-weight: 800; }
+.btn { background: var(--primary); color: var(--white); padding: 18px 45px; text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; transition: var(--transition); }
+.btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
 /* --- HLAVNÝ LAYOUT --- */
 .main-layout {
@@ -162,135 +105,42 @@ header {
 }
 
 /* --- SIDEBAR A SLIDESHOW --- */
-.sidebar-sticky {
-    position: sticky;
-    top: 130px;
-}
-
-.slideshow-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-}
+.sidebar-sticky { position: sticky; top: 130px; }
+.slideshow-container { position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 20px; box-shadow: var(--shadow); }
+.slideshow-container img { width: 100%; height: 100%; object-fit: cover; }
 
 /* --- OBSAHOVÁ ČASŤ --- */
-.section-header {
-    margin-bottom: 40px;
-}
-
-.section-header h2 {
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    color: var(--primary);
-    margin-bottom: 15px;
-}
-
-.bg-light {
-    background-color: var(--light);
-    padding: 80px 50px;
-    border-radius: 40px;
-}
+.section-header { margin-bottom: 40px; }
+.section-header h2 { font-size: clamp(2rem, 5vw, 2.8rem); color: var(--primary); margin-bottom: 15px; }
+.bg-light { background-color: var(--light); padding: 80px 50px; border-radius: 40px; }
 
 /* --- CENNÍK --- */
-.pricing-table {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
-}
+.pricing-table { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px; }
+.price-item { background: var(--white); padding: 40px; border-radius: 25px; text-align: center; box-shadow: var(--shadow); }
 
-.price-item {
-    background: var(--white);
-    padding: 40px;
-    border-radius: 25px;
-    text-align: center;
-    box-shadow: var(--shadow);
-}
-
-/* --- KONTAKTNÁ SEKCIA S MAPOU A SOCIALS --- */
-.contact-section {
-    margin-top: 80px;
-}
-
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    font-size: 1.2rem;
-}
-
-.contact-item i {
-    font-size: 1.5rem;
-    color: var(--primary);
-    width: 30px;
-}
-
-.contact-socials {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 30px;
-}
-
-.contact-socials a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 500;
-    transition: var(--transition);
-}
-
-.contact-socials a i {
-    font-size: 1.5rem;
-    color: var(--primary);
-    width: 30px;
-}
-
-.map-container {
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    height: 400px;
-}
+/* --- KONTAKT A MAPA --- */
+.contact-section { margin-top: 80px; }
+.contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; font-size: 1.2rem; }
+.contact-item i { font-size: 1.5rem; color: var(--primary); width: 30px; }
+.map-container { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); height: 400px; }
 
 /* --- AKTIVITY --- */
-.activities {
-    background: #f0f4f0;
-    padding: 40px;
-    border-left: 6px solid var(--primary);
-    border-radius: 15px;
-    margin: 40px 0;
-}
+.activities { background: #f0f4f0; padding: 40px; border-left: 6px solid var(--primary); border-radius: 15px; margin: 40px 0; }
 
 /* --- FOOTER --- */
-footer {
-    padding: 40px 5%;
-    background: var(--dark);
-    color: rgba(255,255,255,0.6);
-    text-align: center;
-}
+footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6); text-align: center; }
 
 /* --- RESPONSIVITA --- */
 @media (max-width: 1100px) {
-    .main-layout {
-        grid-template-columns: 1fr;
-    }
+    .main-layout { grid-template-columns: 1fr; }
+    .sidebar-sticky { position: static; order: 2; }
+    .slideshow-container { aspect-ratio: 16 / 9; }
 }
 
 @media (max-width: 768px) {
     .nav-links { display: none; }
     .contact-wrapper { grid-template-columns: 1fr; }
+    .bg-light { padding: 40px 20px; }
 }
-
+ 
