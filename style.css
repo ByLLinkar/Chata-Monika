@@ -69,7 +69,7 @@ nav::after {
     left: 0;
     width: 100%;
     height: 3px; /* Hrúbka čiary */
-    background-color: var(--primary);
+    background-color: red/*var(--primary);
     z-index: 1001; /* Aby bola vždy navrchu */
 }
 
