@@ -28,63 +28,19 @@
 
     <main class="gallery-page">
         <h1 class="gallery-title">Naša Galéria <span>Chata Monika</span></h1>
-
-        <div class="filter-menu">
-            <button class="filter-btn active" data-filter="all">Všetko</button>
-            <button class="filter-btn" data-filter="monika">Chata Monika</button>
-            <button class="filter-btn" data-filter="cast-a">Časť A</button>
-            <button class="filter-btn" data-filter="cast-b">Časť B</button>
-            <button class="filter-btn" data-filter="okolie">Okolie</button>
+        <section class="gallery-wrapper">
+    <div class="gallery-category">
+        <h2>Chata Monika</h2>
+        <div class="slider-container">
+            <div class="slider-track" data-id="monika">
+                <div class="slide"><img src="img/monika-1.webp"></div>
+                <div class="slide"><img src="img/monika-2.webp"></div>
+                </div>
         </div>
+    </div>
+    </section>
 
-        <div class="gallery-grid" id="gallery-grid">
-            <div class="gallery-item" data-category="monika"><img src="img/monika-1.webp" alt="Chata"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="monika"><img src="img/monika-2.webp" alt="Chata"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="monika"><img src="img/monika-3.webp" alt="Chata"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="monika"><img src="img/monika-4.webp" alt="Chata"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="monika"><img src="img/monika-5.webp" alt="Chata"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="monika"><img src="img/monika-6.webp" alt="Chata"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="monika"><img src="img/monika-7.webp" alt="Chata"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="monika"><img src="img/monika-8.webp" alt="Chata"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="monika"><img src="img/monika-9.webp" alt="Chata"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="monika"><img src="img/monika-10.webp" alt="Chata"><div class="overlay"><span>Detail</span></div></div>
 
-            <div class="gallery-item" data-category="cast-a"><img src="img/cast-a-1.webp" alt="Časť A"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-a"><img src="img/cast-a-2.webp" alt="Časť A"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-a"><img src="img/cast-a-3.webp" alt="Časť A"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-a"><img src="img/cast-a-4.webp" alt="Časť A"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-a"><img src="img/cast-a-5.webp" alt="Časť A"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-a"><img src="img/cast-a-6.webp" alt="Časť A"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-a"><img src="img/cast-a-7.webp" alt="Časť A"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-a"><img src="img/cast-a-8.webp" alt="Časť A"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-a"><img src="img/cast-a-9.webp" alt="Časť A"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-a"><img src="img/cast-a-10.webp" alt="Časť A"><div class="overlay"><span>Detail</span></div></div>
-
-            <div class="gallery-item" data-category="cast-b"><img src="img/cast-b-1.webp" alt="Časť B"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-b"><img src="img/cast-b-2.webp" alt="Časť B"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-b"><img src="img/cast-b-3.webp" alt="Časť B"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-b"><img src="img/cast-b-4.webp" alt="Časť B"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-b"><img src="img/cast-b-5.webp" alt="Časť B"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-b"><img src="img/cast-b-6.webp" alt="Časť B"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-b"><img src="img/cast-b-7.webp" alt="Časť B"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-b"><img src="img/cast-b-8.webp" alt="Časť B"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-b"><img src="img/cast-b-9.webp" alt="Časť B"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="cast-b"><img src="img/cast-b-10.webp" alt="Časť B"><div class="overlay"><span>Detail</span></div></div>
-
-            <div class="gallery-item" data-category="okolie"><img src="img/okolie-1.webp" alt="Okolie"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="okolie"><img src="img/okolie-2.webp" alt="Okolie"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="okolie"><img src="img/okolie-3.webp" alt="Okolie"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="okolie"><img src="img/okolie-4.webp" alt="Okolie"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="okolie"><img src="img/okolie-5.webp" alt="Okolie"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="okolie"><img src="img/okolie-6.webp" alt="Okolie"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="okolie"><img src="img/okolie-7.webp" alt="Okolie"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="okolie"><img src="img/okolie-8.webp" alt="Okolie"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="okolie"><img src="img/okolie-9.webp" alt="Okolie"><div class="overlay"><span>Detail</span></div></div>
-            <div class="gallery-item" data-category="okolie"><img src="img/okolie-10.webp" alt="Okolie"><div class="overlay"><span>Detail</span></div></div>
-        </div>
-    </main>
-
-    <div id="lightbox" class="lightbox"><span class="close-lightbox">&times;</span><img id="lightbox-img" src="" alt="Zväčšený náhľad"></div>
 
     <footer><p>&copy; 2026 Chata Monika.</p></footer>
     <script src="script.js"></script>
