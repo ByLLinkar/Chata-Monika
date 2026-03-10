@@ -150,6 +150,13 @@ header {
 .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; font-size: 1.2rem; }
 .contact-item i { font-size: 1.5rem; color: var(--primary); width: 30px; }
 .map-container { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); height: 400px; }
+/* --- KONTAKT A SOCIÁLNE SIETE --- */
+.contact-socials { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+.contact-socials a { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--dark); font-weight: 500; padding: 10px 15px; border-radius: 12px; transition: var(--transition) }
+
+/* Hover efekt pre zjednotenie so zvyškom webu */
+.contact-socials a:hover { background: var(--light); color: var(--primary); }
+.contact-socials a i { font-size: 1.5rem; color: var(--primary); width: 30px; text-align: center; }
 
 /* --- AKTIVITY --- */
 .activities { background: #f0f4f0; padding: 40px; border-left: 6px solid var(--primary); border-radius: 15px; margin: 40px 0; }
