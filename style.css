@@ -236,98 +236,31 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     .bg-light { padding: 40px 20px; }
 }
 
-/* --- FILTRE A GALÉRIA --- */
-.filter-menu {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 50px;
-    /* ÚPRAVA PRE TABLET: Ak je menu dlhé, umožní posúvanie do strán */
+.slider-container {
+    width: 100%;
     overflow-x: auto;
-    padding-bottom: 10px;
-    scrollbar-width: none; /* Skryje posuvník v prehliadačoch */
+    scroll-snap-type: x mandatory; /* Wow efekt: prichytávanie fotiek */
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    scrollbar-width: none;
 }
 
-.filter-menu::-webkit-scrollbar { display: none; } /* Skryje posuvník pre Webkit */
+.slider-track { display: flex; gap: 20px; }
 
-.filter-btn {
-    padding: 10px 22px;
-    border: 2px solid var(--primary);
-    background: transparent;
-    color: var(--primary);
-    border-radius: 50px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: var(--transition);
-    white-space: nowrap; /* Zabezpečí, že text tlačidla nebude na dva riadky */
+.slide {
+    scroll-snap-align: start;
+    min-width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.4s ease;
 }
 
-.filter-btn.active, .filter-btn:hover {
-    background: var(--primary);
-    color: var(--white);
-}
+.slide:hover { transform: scale(1.05); }
 
-/* --- LIGHTBOX (Wow efekt) --- */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 3000;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.95);
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(12px);
-    padding: 20px;
-}
-
-#lightbox-img {
-    max-width: 100%;
-    max-height: 90vh;
-    border-radius: 12px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-    transform: scale(0.9);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.lightbox.open #lightbox-img {
-    transform: scale(1);
-}
-
-/* --- ZATVÁRACÍ KRÍŽIK (Optimalizovaný pre dotyk) --- */
-.close-lightbox {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: white;
-    font-size: 2.5rem;
-    cursor: pointer;
-    z-index: 3001;
-    padding: 10px; /* Zväčšená plocha pre kliknutie prstom */
-}
-
-/* --- ANIMÁCIE --- */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px) scale(0.98); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.gallery-item {
-    animation: fadeIn 0.6s ease forwards;
-    /* Pridané pre lepšiu odozvu na dotyk */
-    -webkit-tap-highlight-color: transparent;
-}
-
-/* ÚPRAVA PRE MOBIL/TABLET ZOBRAZENIE */
-@media (max-width: 768px) {
-    .filter-menu {
-        justify-content: flex-start; /* Menu začína zľava */
-        padding-left: 20px;
-    }
-    .filter-btn {
-        padding: 8px 18px;
-        font-size: 0.9rem;
-    }
-}
-
-    z-index: 3001;
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
