@@ -58,7 +58,9 @@ nav {
     width: 100%;
     top: 40px;
     z-index: 1000;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    /* Zelená čiara ako vizuálne oddelenie */
+    border-bottom: 3px solid var(--primary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .nav-container {
@@ -70,13 +72,46 @@ nav {
     align-items: center;
 }
 
-.logo { font-size: 1.6rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
-.logo a { text-decoration: none; color: var(--primary); display: block; transition: var(--transition); }
-.logo a span { font-weight: 300; color: var(--accent); margin-left: 2px; }
+.logo { 
+    font-size: 1.6rem; 
+    font-weight: 800; 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+}
 
-.nav-links a { text-decoration: none; color: var(--dark); margin-left: 25px; font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
-.nav-links a:hover { color: var(--primary); }
-.btn-small { background: var(--primary); color: var(--white) !important; padding: 10px 22px; border-radius: 50px; font-size: 0.85rem; }
+.logo a { 
+    text-decoration: none; 
+    color: var(--primary); 
+    display: block; 
+    transition: var(--transition); 
+}
+
+.logo a span { 
+    font-weight: 300; 
+    color: var(--accent); 
+    margin-left: 2px; 
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--dark); 
+    margin-left: 25px; 
+    font-weight: 500; 
+    font-size: 0.95rem; 
+    transition: var(--transition); 
+}
+
+.nav-links a:hover { 
+    color: var(--primary); 
+}
+
+.btn-small { 
+    background: var(--primary); 
+    color: var(--white) !important; 
+    padding: 10px 22px; 
+    border-radius: 50px; 
+    font-size: 0.85rem; 
+}
 
 /* --- HERO SEKCIÁ --- */
 header {
