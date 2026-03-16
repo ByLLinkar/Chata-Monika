@@ -1,102 +1,249 @@
 /* --- MODERNÉ PREMENNÉ --- */
 :root {
-    --primary: #2d5a27;
-    --primary-dark: #1e3d1a;
-    --accent: #d4a373;
-    --dark: #1a1c1e;
-    --light: #f8f9fa;
-    --white: #ffffff;
-    --shadow: 0 10px 30px rgba(0,0,0,0.1);
-    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+--primary: #2d5a27;
+--primary-dark: #1e3d1a;
+--accent: #d4a373;
+--dark: #1a1c1e;
+--light: #f8f9fa;
+--white: #ffffff;
+--shadow: 0 10px 30px rgba(0,0,0,0.1);
+--transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* --- ZÁKLADNÝ RESET --- */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+-webkit-tap-highlight-color: transparent;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    color: var(--dark);
-    background-color: var(--white);
-    overflow-x: hidden;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+line-height: 1.6;
+color: var(--dark);
+background-color: var(--white);
+overflow-x: hidden;
 }
 
+/* --- TOPBAR --- */
 /* --- TOPBAR A NAV --- */
 .topbar {
-    background: var(--primary);
-    color: var(--white);
-    font-size: 0.85rem;
-    padding: 0 5%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1001;
-    height: 40px;
+background: var(--primary);
+color: var(--white);
+font-size: 0.85rem;
+padding: 0 5%;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 1001;
+height: 40px;
 }
 
+.topbar-content span { margin-left: 20px; font-weight: 300; }
+.topbar-content i { margin-right: 5px; color: var(--accent); }
+
+/* --- NAVIGÁCIA --- */
 nav {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    height: 70px;
-    display: flex;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 40px;
-    z-index: 1000;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+height: 70px;
+display: flex;
+align-items: center;
+position: fixed;
+width: 100%;
+top: 40px;
+z-index: 1000;
+box-shadow: 0 2px 15px rgba(0,0,0,0.05);
 }
 
+/* Toto vytvorí tú zelenú čiaru nezávisle na boxe */
 nav::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+content: "";
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+    height: 3px; /* Hrúbka čiary */
     height: 3px;
-    background-color: var(--primary);
+background-color: var(--primary);
+    z-index: 1001; /* Aby bola vždy navrchu */
     z-index: 1001;
 }
 
 .nav-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+width: 90%;
+max-width: 1200px;
+margin: auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
+.logo { 
+    font-size: 1.6rem; 
+    font-weight: 800; 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+}
+
+.logo a { 
+    text-decoration: none; 
+    color: var(--primary); 
+    display: block; 
+    transition: var(--transition); 
+}
+
+.logo a span { 
+    font-weight: 300; 
+    color: var(--accent); 
+    margin-left: 2px; 
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--dark); 
+    margin-left: 25px; 
+    font-weight: 500; 
+    font-size: 0.95rem; 
+    transition: var(--transition); 
+}
 .logo { font-size: 1.6rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
 .logo a { text-decoration: none; color: var(--primary); display: block; }
 .logo a span { font-weight: 300; color: var(--accent); margin-left: 2px; }
 
+.nav-links a:hover { 
+    color: var(--primary); 
+}
+
+.btn-small { 
+    background: var(--primary); 
+    color: var(--white) !important; 
+    padding: 10px 22px; 
+    border-radius: 50px; 
+    font-size: 0.85rem; 
+}
 .nav-links a { text-decoration: none; color: var(--dark); margin-left: 25px; font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
 .nav-links a:hover { color: var(--primary); }
 .btn-small { background: var(--primary); color: var(--white) !important; padding: 10px 22px; border-radius: 50px; font-size: 0.85rem; }
 
 /* --- HERO SEKCIÁ --- */
 header {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('img/hero.webp') center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--white);
+height: 100vh;
+background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('img/hero.webp') center/cover no-repeat;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+color: var(--white);
+    padding: 110px 20px 0;
+}
+
+.hero-content h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 20px; font-weight: 800; }
+.btn { background: var(--primary); color: var(--white); padding: 18px 45px; text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; transition: var(--transition); }
+.btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+/* --- HLAVNÝ LAYOUT --- */
+.main-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 60px;
+    padding: 120px 5%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* --- SIDEBAR A SLIDESHOW --- */
+.sidebar-sticky { position: sticky; top: 130px; }
+.slideshow-container { position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 20px; box-shadow: var(--shadow); }
+.slideshow-container img { width: 100%; height: 100%; object-fit: cover; }
+
+.sidebar-slides {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: slideSequence 15s infinite;
+}
+
+/* Optimalizované prelínanie fotiek */
+.slide-1 { background-image: url('img/slide1.webp'); animation-delay: 0s; }
+.slide-2 { background-image: url('img/slide2.webp'); animation-delay: 5s; }
+.slide-3 { background-image: url('img/slide3.webp'); animation-delay: 10s; }
+
+@keyframes slideSequence {
+    /* Fotka je plne viditeľná */
+    0%, 25% { opacity: 1; z-index: 1; }
+    /* Fotka sa začína strácať */
+    33% { opacity: 0; z-index: 1; }
+    /* Fotka je skrytá a v pozadí */
+    34%, 99% { opacity: 0; z-index: 0; }
+    /* Návrat do stavu pred štartom */
+    100% { opacity: 0; z-index: 0; }
     padding-top: 110px;
 }
 
+
+/* --- OBSAHOVÁ ČASŤ --- */
+.section-header { margin-bottom: 40px; }
+.section-header h2 { font-size: clamp(2rem, 5vw, 2.8rem); color: var(--primary); margin-bottom: 15px; }
+.bg-light { background-color: var(--light); padding: 80px 50px; border-radius: 40px; }
+
+/* --- CENNÍK --- */
+.pricing-table { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px; }
+.price-item { background: var(--white); padding: 40px; border-radius: 25px; text-align: center; box-shadow: var(--shadow); }
+
+/* --- KONTAKT A MAPA --- */
+.contact-section { margin-top: 80px; }
+.contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; font-size: 1.2rem; }
+.contact-item i { font-size: 1.5rem; color: var(--primary); width: 30px; }
+.map-container { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); height: 400px; }
+
+/* --- SOCIÁLNE SIETE (Zjednotené a čisté) --- */
+.contact-socials { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+.contact-socials a { display: flex; align-items: center; gap: 15px; text-decoration: none !important; color: var(--dark) !important; font-weight: 500; padding: 12px 20px; border-radius: 12px; transition: var(--transition); border: 1px solid rgba(0, 0, 0, 0.05); }
+
+/* Hover efekt */
+.contact-socials a:hover {
+    background: var(--light);
+    border-color: var(--primary);
+    color: var(--primary) !important; /* Text sa pri hoveri zafarbí na primárnu */
+    transform: translateX(5px);
+}
+
+/* Ikony v odkazoch */
+.contact-socials a i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    width: 30px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+/* --- AKTIVITY --- */
+.activities { background: #f0f4f0; padding: 40px; border-left: 6px solid var(--primary); border-radius: 15px; margin: 40px 0; }
+
+/* --- FOOTER --- */
+footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6); text-align: center; }
+
+/* --- RESPONSIVITA --- */
+@media (max-width: 1100px) {
+    .main-layout { grid-template-columns: 1fr; }
+    .sidebar-sticky { position: static; order: 2; }
+    .slideshow-container { aspect-ratio: 16 / 9; }
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .contact-wrapper { grid-template-columns: 1fr; }
+    .bg-light { padding: 40px 20px; }
 /* --- GALÉRIA A SLIDERY --- */
 .gallery-category { margin: 60px 0; }
 .gallery-category h2 { 
@@ -107,24 +254,57 @@ header {
     z-index: 5;
 }
 
+/* SLIDER CONTAINER */
+
+.slider-container{
 .slider-container {
-    position: relative;
-    width: 100%;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+position: relative;
+width: 100%;
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+    display: flex;
+    gap: 20px;
     display: block; /* Opravené pre lepšiu stabilitu */
-    padding: 20px 0;
-    scrollbar-width: none;
+padding: 20px 0;
+
+scrollbar-width: none;
 }
 
+.slider-container::-webkit-scrollbar{
+    display:none;
+}
+
+
+/* TRACK */
 .slider-container::-webkit-scrollbar { display: none; }
 
+.slider-track{
+    display:flex;
+    gap:20px;
+}
+
+
+/* SLIDE */
+
+.slide{
+    scroll-snap-align:start;
+
+    min-width:300px;
+    height:400px;
+
+    border-radius:20px;
+    overflow:hidden;
+
+    transition:transform 0.4s ease, box-shadow 0.4s ease;
 .slider-track {
     display: flex;
     gap: 20px;
     width: max-content;
 }
 
+.slide:hover{
+    transform:scale(1.05);
+    box-shadow:0 20px 40px rgba(0,0,0,0.25);
 .slide {
     scroll-snap-align: start;
     min-width: 300px;
@@ -134,11 +314,47 @@ header {
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
+
+/* IMAGE */
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 .slide:hover {
     transform: scale(1.03);
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
+
+/* SLIDER BUTTONS */
+
+.slider-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:45px;
+    height:45px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(0,0,0,0.6);
+    color:white;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:18px;
+
+    transition:0.3s;
+
+    z-index:10;
 .slide img {
     width: 100%;
     height: 100%;
@@ -146,6 +362,8 @@ header {
     display: block;
 }
 
+.slider-btn:hover{
+    background:rgba(0,0,0,0.9);
 /* --- OVLÁDANIE --- */
 .slider-btn {
     position: absolute;
@@ -169,6 +387,12 @@ header {
 .slider-btn.prev { left: 10px; }
 .slider-btn.next { right: 10px; }
 
+.slider-btn.prev{
+    left:10px;
+}
+
+.slider-btn.next{
+    right:10px;
 /* --- LIGHTBOX --- */
 .lightbox {
     position: fixed;
@@ -186,6 +410,24 @@ header {
 
 .lightbox.active { opacity: 1; pointer-events: all; }
 
+/* LIGHTBOX */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,0.95);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:0.3s;
+
+    z-index:9999;
 .lightbox img {
     max-width: 90%;
     max-height: 80vh;
@@ -193,6 +435,19 @@ header {
     box-shadow: 0 0 50px rgba(0,0,0,0.3);
 }
 
+.lightbox.active{
+    opacity:1;
+    pointer-events:all;
+}
+
+
+.lightbox img{
+    max-width:90%;
+    max-height:80vh;
+
+    border-radius:10px;
+
+    box-shadow:0 0 50px rgba(0,255,0,0.2);
 .close-lightbox {
     position: absolute;
     top: 20px;
@@ -201,6 +456,16 @@ header {
     font-size: 3rem;
     cursor: pointer;
 }
+
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+    .slide{
+        min-width:260px;
+        height:320px;
+    }
 
 /* --- RESPONSIVITA --- */
 @media (max-width: 768px) {
