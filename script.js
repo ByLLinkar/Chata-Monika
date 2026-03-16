@@ -1,61 +1,69 @@
-document.querySelectorAll(".slider-btn").forEach(btn => {
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- 1. OVLÁDANIE SLIDEROV (Tlačidlá prev/next) ---
+    document.querySelectorAll('.slider-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.target;
+            const track = document.querySelector(`.slider-track[data-id="${id}"]`);
+            
+            // Dynamický výpočet: posunieme o šírku jednej fotky (vrátane medzery)
+            const firstSlide = track.querySelector('.slide');
+            const scrollAmount = firstSlide ? firstSlide.offsetWidth + 20 : 320;
 
-    btn.addEventListener("click", () => {
+            if (btn.classList.contains('next')) {
+                track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+        });
+    });
 
-        const id = btn.dataset.target
-        const track = document.querySelector(`.slider-track[data-id="${id}"]`)
-        const container = track.parentElement
+    // --- 2. LIGHTBOX (Dynamický a inteligentný) ---
+    const lightbox = document.createElement('div');
+    lightbox.classList.add('lightbox');
+    
+    const lightboxImg = document.createElement('img');
+    const closeBtn = document.createElement('span');
+    closeBtn.innerHTML = '&times;';
+    closeBtn.classList.add('close-lightbox');
 
-        const scrollAmount = 320
+    lightbox.appendChild(closeBtn);
+    lightbox.appendChild(lightboxImg);
+    document.body.appendChild(lightbox);
 
-        if(btn.classList.contains("next")){
-            container.scrollBy({
-                left: scrollAmount,
-                behavior: "smooth"
-            })
+    // Delegovanie udalostí: Počúvame na celom dokumente, 
+    // takže to funguje aj na fotky vytvorené cyklom
+    document.addEventListener('click', (e) => {
+        // Otvorenie lightboxu
+        const clickedImg = e.target.closest('.slide img');
+        if (clickedImg) {
+            lightboxImg.src = clickedImg.src;
+            lightbox.classList.add('active');
+            // Zákaz skrolovania pozadia pri otvorenom lightboxe
+            document.body.style.overflow = 'hidden';
         }
 
-        if(btn.classList.contains("prev")){
-            container.scrollBy({
-                left: -scrollAmount,
-                behavior: "smooth"
-            })
+        // Zatvorenie lightboxu (klik na krížik alebo mimo fotky)
+        if (e.target === lightbox || e.target === closeBtn) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
+    });
 
-    })
-
-})
-
-
-
-/* LIGHTBOX */
-
-const slides = document.querySelectorAll(".slide img")
-
-const lightbox = document.createElement("div")
-lightbox.classList.add("lightbox")
-
-const lightboxImg = document.createElement("img")
-
-lightbox.appendChild(lightboxImg)
-document.body.appendChild(lightbox)
-
-
-
-slides.forEach(img => {
-
-    img.addEventListener("click", () => {
-
-        lightbox.classList.add("active")
-        lightboxImg.src = img.src
-
-    })
-
-})
-
-
-lightbox.addEventListener("click", () => {
-
-    lightbox.classList.remove("active")
-
-})
+    // --- 3. SKRYTIE TLAČIDIEL NA KONCI (Bonus pre Wow efekt) ---
+    // Ak je užívateľ na konci, tlačidlo "next" môže jemne vyblednúť
+    document.querySelectorAll('.slider-track').forEach(track => {
+        track.addEventListener('scroll', () => {
+            const id = track.dataset.id;
+            const prevBtn = document.querySelector(`.slider-btn.prev[data-target="${id}"]`);
+            
+            if (track.scrollLeft > 10) {
+                prevBtn.style.opacity = '1';
+                prevBtn.style.pointerEvents = 'all';
+            } else {
+                prevBtn.style.opacity = '0.3';
+                prevBtn.style.pointerEvents = 'none';
+            }
+        });
+    });
+});
