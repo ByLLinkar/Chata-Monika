@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 0. CYKLUS NA VYTVORENIE FOTIEK (Toto ti chybalo) ---
     const config = [
-        { id: 'monika', count: 10, alt: 'Chata Monika' },
-        { id: 'cast-a', count: 10,  alt: 'Cast A' },
+        { id: 'monika', count: 6, alt: 'Chata Monika' },
+        { id: 'cast-a', count: 11,  alt: 'Cast A' },
         { id: 'cast-b', count: 10,  alt: 'Cast B' },
-        { id: 'okolie', count: 10,  alt: 'Okolie' }
+        { id: 'okolie', count: 0,  alt: 'Okolie' }
     ];
 
     config.forEach(item => {
