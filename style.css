@@ -61,16 +61,15 @@ nav {
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
 }
 
-/* Toto vytvorí tú zelenú čiaru nezávisle na boxe */
 nav::after {
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 3px; /* Hrúbka čiary */
+    height: 3px;
     background-color: var(--primary);
-    z-index: 1001; /* Aby bola vždy navrchu */
+    z-index: 1001;
 }
 
 .nav-container {
@@ -82,45 +81,49 @@ nav::after {
     align-items: center;
 }
 
-.logo { 
-    font-size: 1.6rem; 
-    font-weight: 800; 
-    letter-spacing: 1px; 
-    text-transform: uppercase; 
+/* --- LOGO --- */
+.logo { font-size: 1.6rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+.logo a { text-decoration: none; color: var(--primary); display: block; transition: var(--transition); }
+.logo a span { font-weight: 300; color: var(--accent); margin-left: 2px; }
+
+/* --- MENU TOGGLE (HAMBURGER) --- */
+.menu-toggle {
+    display: none; /* Skryté na desktope */
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--primary);
 }
 
-.logo a { 
-    text-decoration: none; 
-    color: var(--primary); 
-    display: block; 
-    transition: var(--transition); 
-}
+/* --- NAV LINKS --- */
+.nav-links { display: flex; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--dark); margin-left: 25px; font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
+.nav-links a:hover { color: var(--primary); }
+.btn-small { background: var(--primary); color: var(--white) !important; padding: 10px 22px; border-radius: 50px; font-size: 0.85rem; }
 
-.logo a span { 
-    font-weight: 300; 
-    color: var(--accent); 
-    margin-left: 2px; 
-}
+/* --- MOBILNÁ RESPONSIVITA (DOPLNENIE) --- */
+@media (max-width: 768px) {
+    .menu-toggle { display: block; } /* Zobraziť hamburger */
+    
+    .nav-links {
+        display: none; /* Pôvodne skryté */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Pod navigáciou */
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
 
-.nav-links a { 
-    text-decoration: none; 
-    color: var(--dark); 
-    margin-left: 25px; 
-    font-weight: 500; 
-    font-size: 0.95rem; 
-    transition: var(--transition); 
-}
+    .nav-links.active { display: flex; } /* Zobraziť po kliknutí cez JS */
 
-.nav-links a:hover { 
-    color: var(--primary); 
-}
-
-.btn-small { 
-    background: var(--primary); 
-    color: var(--white) !important; 
-    padding: 10px 22px; 
-    border-radius: 50px; 
-    font-size: 0.85rem; 
+    .nav-links a {
+        margin: 15px 0;
+        font-size: 1.2rem;
+        display: block;
+    }
 }
 
 /* --- HERO SEKCIÁ --- */
