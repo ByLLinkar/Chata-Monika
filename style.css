@@ -157,21 +157,40 @@ header {
     background: white;
 }
 
-/* --- FOTOSLIDESHOW (OPRAVENÉ ONESKORENIA) --- */
-.slideshow-container .sidebar-slides { 
+/* --- OPRAVA FOTOSLIDESHOW --- */
+.slideshow-container {
+    position: relative;
+    /* Ak mas .sidebar-box s aspect-ratio, toto je v poriadku */
+    background-color: #f0f0f0; /* Ak uvidis sivu plochu, CSS funguje, ale fotky nenacitalo */
+}
+
+/* Toto zabezpeci, ze slajdy budu viditelne vnutri kontajnera */
+.slideshow-container .sidebar-slides {
     position: absolute;
-    inset: 0;
-    width: 100%; 
-    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     opacity: 0;
+    z-index: 1;
     animation: slideSequence 15s infinite;
 }
 
-.slide-1 { background-image: url('img/slide1.webp'); animation-delay: 0s; }
+/* Cesty k obrazkom - SKONTROLUJ CI MAS PRIECINOK 'img' A V NOM TIETO NAZVY */
+.slide-1 { background-image: url('img/slide1.webp'); animation-delay: 0s; opacity: 1; }
 .slide-2 { background-image: url('img/slide2.webp'); animation-delay: 5s; }
 .slide-3 { background-image: url('img/slide3.webp'); animation-delay: 10s; }
+
+/* Klucova animacia - musi menit opacity a z-index */
+@keyframes slideSequence {
+    0%, 25% { opacity: 1; z-index: 2; }
+    33%, 100% { opacity: 0; z-index: 1; }
+}
 
 /* --- RECENZIE (VYČISTENÉ) --- */
 .review-card-sidebar {
