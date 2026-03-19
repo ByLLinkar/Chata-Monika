@@ -460,6 +460,26 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     background: #f0f0f0; /* Pomocne pozadie kym nacita fotky */
 }
 
+
+/* --- ZJEDNOTENY SIDEBAR --- */
+.sidebar-sticky { 
+    position: sticky; 
+    top: 130px; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-box {
+    position: relative; 
+    width: 100%; 
+    aspect-ratio: 4 / 5; 
+    overflow: hidden; 
+    border-radius: 20px; 
+    box-shadow: var(--shadow);
+    background: #2d5a27; /* Tmavozelena ako poistka, ak by fotka vypadla */
+}
+
 /* --- FOTOSLIDESHOW --- */
 .slideshow-container .sidebar-slides { 
     position: absolute;
@@ -470,10 +490,12 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0;
+    /* Klucova zmena: animacia trva 15s a kazda fotka ma 5s slot */
     animation: slideSequence 15s infinite;
 }
 
-/* Cesty k obrazkom: Ak mas CSS v podpriecinku, pouzi ../img/
+/* DOLEZITE: 
+   Ak mas CSS v priecinku 'css', cesty musia byt: url('../img/slide1.webp')
 */
 .slide-1 { background-image: url('img/slide1.webp'); animation-delay: 0s; }
 .slide-2 { background-image: url('img/slide2.webp'); animation-delay: 5s; }
@@ -492,15 +514,15 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     opacity: 0;
     background: white;
     transition: opacity 1.5s ease-in-out;
-    z-index: 1;
+    z-index: 5;
 }
 
 .review-card-sidebar.active {
     opacity: 1;
-    z-index: 2;
+    z-index: 6;
 }
 
-/* --- STYL TEXTU RECENZII --- */
+/* --- STYL TEXTU --- */
 .review-card-sidebar .quote-icon { font-size: 2rem; color: var(--primary); opacity: 0.2; margin-bottom: 10px; }
 .review-card-sidebar p { font-style: italic; color: #333; font-size: 1.05rem; line-height: 1.6; margin: 0; }
 .review-card-sidebar h4 { margin-top: 15px; color: var(--primary); font-size: 1rem; font-weight: bold; }
@@ -516,27 +538,18 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
         gap: 15px;
         margin-top: 30px;
     }
-    .sidebar-box {
-        aspect-ratio: 1 / 1;
-    }
+    .sidebar-box { aspect-ratio: 1 / 1; }
 }
 
 @media (max-width: 600px) {
-    .sidebar-sticky {
-        grid-template-columns: 1fr;
-    }
+    .sidebar-sticky { grid-template-columns: 1fr; }
 }
 
-/* --- ANIMACIA FOTIEK --- */
+/* --- OPRAVENA ANIMACIA (ZABRANI ZMIZNUTIU) --- */
 @keyframes slideSequence {
-    /* Fotka je plne viditelna zhruba 4 sekundy */
-    0%, 25% { 
-        opacity: 1; 
-        z-index: 10; 
-    }
-    /* Počas ďalších 1.5 sekundy plynule zmizne */
-    33.33%, 100% { 
-        opacity: 0; 
-        z-index: 1; 
-    }
+    0% { opacity: 0; z-index: 1; }
+    5% { opacity: 1; z-index: 2; }   /* Rychly nabeh (vynimka pre start) */
+    25% { opacity: 1; z-index: 2; }  /* Fotka drzi */
+    33.33% { opacity: 0; z-index: 1; } /* Fotka zmizne presne ked zacne dalsia */
+    100% { opacity: 0; z-index: 1; }
 }
