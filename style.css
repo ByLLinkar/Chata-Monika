@@ -562,32 +562,48 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 
 
 /* --- RESPONZIVITA --- */
+/* --- TABLET --- */
 @media (max-width: 992px) {
 
     .sidebar-sticky {
         position: static;
-        display: grid;
 
-        grid-template-columns: repeat(2, minmax(0, 1fr)); /* 🔥 FIX */
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* 🔥 kľúčové */
         gap: 20px;
 
         margin-top: 30px;
     }
-
+    .sidebar-box:hover {
+        transform: translateY(-5px);
+        transition: 0.3s;
+    }
     .sidebar-box {
-        aspect-ratio: auto; /* 🔥 zruší problém s výškou */
-        height: 300px;      /* pevná výška = stabilita */
+        aspect-ratio: auto;  /* ❗ vypnúť ratio */
+        height: 300px;       /* stabilná výška */
+        width: 100%;
+    }
+
+    .review-card-sidebar {
+        padding: 20px; /* menší padding */
     }
 
 }
 
+
+/* --- MOBILE --- */
 @media (max-width: 600px) {
 
     .sidebar-sticky {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 1fr; /* pod sebou */
     }
-}
 
+    .sidebar-box {
+        height: 260px;
+    }
+
+}
 
 /* --- ANIMACIA (VYLEPSENA + SMOOTH + ZOOM) --- */
 @keyframes slideSequence {
