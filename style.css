@@ -441,51 +441,40 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     transform: scale(1.1);
 }
 
-/* --- SIDEBAR A SLIDESHOW (INDEX.html) --- */
-.sidebar-sticky { position: sticky; top: 130px; }
-.slideshow-container { position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 20px; box-shadow: var(--shadow); }
-.slideshow-container img { width: 100%; height: 100%; object-fit: cover; }
+/* --- ZJEDNOTENY SIDEBAR --- */
+.sidebar-sticky { 
+    position: sticky; 
+    top: 130px; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Medzera medzi fotkami a recenziami */
+}
 
-.sidebar-slides {
+/* Spolocny styl pre oba boxy */
+.sidebar-box {
+    position: relative; 
+    width: 100%; 
+    aspect-ratio: 4 / 5; 
+    overflow: hidden; 
+    border-radius: 20px; 
+    box-shadow: var(--shadow);
+    background: white;
+}
+
+/* --- FOTOSLIDESHOW --- */
+.slideshow-container img, .sidebar-slides { 
     position: absolute;
     inset: 0;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
     background-size: cover;
     background-position: center;
     opacity: 0;
     animation: slideSequence 15s infinite;
 }
 
-/* Optimalizované prelínanie fotiek */
-.slide-1 { background-image: url('img/slide1.webp'); animation-delay: 0s; }
-.slide-2 { background-image: url('img/slide2.webp'); animation-delay: 5s; }
-.slide-3 { background-image: url('img/slide3.webp'); animation-delay: 10s; }
-
-@keyframes slideSequence {
-    /* Fotka je plne viditeľná */
-    0%, 25% { opacity: 1; z-index: 1; }
-    /* Fotka sa začína strácať */
-    33% { opacity: 0; z-index: 1; }
-    /* Fotka je skrytá a v pozadí */
-    34%, 99% { opacity: 0; z-index: 0; }
-    /* Návrat do stavu pred štartom */
-    100% { opacity: 0; z-index: 0; }
-}
-
-/* --- Review slideshow --- */
-.review-slideshow-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 5; /* Rovnake ako tvoj slideshow fotiek */
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    background: white;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
+/* --- RECENZIE (VLASTNY ZIVOT) --- */
 .review-card-sidebar {
     position: absolute;
     inset: 0;
@@ -496,8 +485,8 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     align-items: center;
     text-align: center;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out; /* Wow effect prelinania */
     background: white;
+    transition: opacity 1.5s ease-in-out;
 }
 
 .review-card-sidebar.active {
@@ -505,15 +494,17 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     z-index: 2;
 }
 
-/* Styl textu v sidebare */
-.review-card-sidebar i.fa-star { color: #ffc107; font-size: 0.8rem; margin: 2px; }
-.review-card-sidebar .quote-icon { font-size: 2rem; color: var(--primary); opacity: 0.2; margin-bottom: 10px; }
-.review-card-sidebar p { font-style: italic; color: #444; font-size: 1.1rem; line-height: 1.5; }
-.review-card-sidebar h4 { margin-top: 15px; color: var(--primary); font-size: 1rem; }
-.review-card-sidebar .platform-tag { 
-    font-size: 0.7rem; 
-    text-transform: uppercase; 
-    color: #999; 
-    margin-top: 5px;
-    font-weight: bold;
+/* --- STYL TEXTU V RECENZIACH --- */
+.review-card-sidebar .quote-icon { font-size: 2.5rem; color: var(--primary); opacity: 0.15; margin-bottom: 10px; }
+.review-card-sidebar .stars { margin-bottom: 15px; }
+.review-card-sidebar i.fa-star { color: #ffc107; font-size: 0.85rem; margin: 0 1px; }
+.review-card-sidebar p { font-style: italic; color: #333; font-size: 1.05rem; line-height: 1.6; margin: 0; }
+.review-card-sidebar h4 { margin-top: 15px; color: var(--primary); font-size: 1rem; font-weight: bold; }
+.review-card-sidebar .platform-tag { font-size: 0.65rem; text-transform: uppercase; color: #bbb; margin-top: 8px; letter-spacing: 1px; }
+
+/* Animacia fotiek ostava rovnaka */
+@keyframes slideSequence {
+    0%, 25% { opacity: 1; z-index: 1; }
+    33% { opacity: 0; z-index: 1; }
+    34%, 100% { opacity: 0; z-index: 0; }
 }
