@@ -457,7 +457,7 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     overflow: hidden; 
     border-radius: 20px; 
     box-shadow: var(--shadow);
-    background: #f0f0f0; /* Pomocna farba, ak nevidis fotky, uvidis aspon box */
+    background: #f0f0f0; /* Pomocne pozadie kym nacita fotky */
 }
 
 /* --- FOTOSLIDESHOW --- */
@@ -468,13 +468,12 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     height: 100%; 
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; /* Zabrani opakovaniu malej fotky */
+    background-repeat: no-repeat;
     opacity: 0;
     animation: slideSequence 15s infinite;
 }
 
-/* DOLEZITE: Kazda fotka musi mat svoj delay a cestu.
-   Ak mas CSS v priecinku (napr. css/style.css), pridaj pred img dve bodky: ../img/
+/* Cesty k obrazkom: Ak mas CSS v podpriecinku, pouzi ../img/
 */
 .slide-1 { background-image: url('img/slide1.webp'); animation-delay: 0s; }
 .slide-2 { background-image: url('img/slide2.webp'); animation-delay: 5s; }
@@ -493,12 +492,20 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     opacity: 0;
     background: white;
     transition: opacity 1.5s ease-in-out;
+    z-index: 1;
 }
 
 .review-card-sidebar.active {
     opacity: 1;
     z-index: 2;
 }
+
+/* --- STYL TEXTU RECENZII --- */
+.review-card-sidebar .quote-icon { font-size: 2rem; color: var(--primary); opacity: 0.2; margin-bottom: 10px; }
+.review-card-sidebar p { font-style: italic; color: #333; font-size: 1.05rem; line-height: 1.6; margin: 0; }
+.review-card-sidebar h4 { margin-top: 15px; color: var(--primary); font-size: 1rem; font-weight: bold; }
+.review-card-sidebar i.fa-star { color: #ffc107; font-size: 0.8rem; margin: 2px; }
+.review-card-sidebar .platform-tag { font-size: 0.65rem; text-transform: uppercase; color: #bbb; margin-top: 8px; letter-spacing: 1px; }
 
 /* --- RESPONZIVITA --- */
 @media (max-width: 992px) {
@@ -520,16 +527,16 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     }
 }
 
-/* --- STYL TEXTU --- */
-.review-card-sidebar .quote-icon { font-size: 2rem; color: var(--primary); opacity: 0.2; margin-bottom: 10px; }
-.review-card-sidebar p { font-style: italic; color: #333; font-size: 1.05rem; line-height: 1.6; margin: 0; }
-.review-card-sidebar h4 { margin-top: 15px; color: var(--primary); font-size: 1rem; font-weight: bold; }
-.review-card-sidebar i.fa-star { color: #ffc107; font-size: 0.8rem; margin: 2px; }
-.review-card-sidebar .platform-tag { font-size: 0.65rem; text-transform: uppercase; color: #bbb; margin-top: 8px; letter-spacing: 1px; }
-
-/* Animacia fotiek */
+/* --- ANIMACIA FOTIEK --- */
 @keyframes slideSequence {
-    0%, 25% { opacity: 1; z-index: 1; }
-    33% { opacity: 0; z-index: 1; }
-    34%, 100% { opacity: 0; z-index: 0; }
+    /* Fotka je plne viditelna zhruba 4 sekundy */
+    0%, 25% { 
+        opacity: 1; 
+        z-index: 10; 
+    }
+    /* Počas ďalších 1.5 sekundy plynule zmizne */
+    33.33%, 100% { 
+        opacity: 0; 
+        z-index: 1; 
+    }
 }
