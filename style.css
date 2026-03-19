@@ -484,6 +484,7 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     opacity: 0;
 
     animation: slideSequence 15s infinite;
+    animation-fill-mode: both;
 
     will-change: opacity, transform; /* performance boost */
 }
@@ -586,13 +587,11 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 
 /* --- ANIMACIA (VYLEPSENA + SMOOTH + ZOOM) --- */
 @keyframes slideSequence {
+    0%   { opacity: 0; }
+    5%   { opacity: 1; }
 
-    0%   { opacity: 0; transform: scale(1); }
-    5%   { opacity: 1; transform: scale(1.02); }
+    28%  { opacity: 1; }
+    33%  { opacity: 0; }
 
-    30%  { opacity: 1; transform: scale(1.05); }
-
-    35%  { opacity: 0; transform: scale(1.05); }
-
-    100% { opacity: 0; transform: scale(1); }
+    100% { opacity: 0; }
 }
