@@ -233,3 +233,55 @@ lightbox.addEventListener('touchend', (e) => {
     }
 
 });
+
+    /* REVIEW CSS */
+async function initReviewSidebar() {
+    const container = document.getElementById('review-sidebar');
+    
+    try {
+        const response = await fetch('review.txt');
+        const data = await response.text();
+        const lines = data.trim().split('\n');
+        
+        container.innerHTML = ''; // Vymazeme loading text
+
+        // 1. Vytvorime vsetky karty
+        lines.forEach((line, index) => {
+            const [name, text, stars, platform] = line.split('|');
+            if (!name) return;
+
+            const card = document.createElement('div');
+            card.className = `review-card-sidebar ${index === 0 ? 'active' : ''}`;
+            
+            let starHtml = '';
+            for(let i=0; i<parseInt(stars); i++) starHtml += '<i class="fas fa-star"></i>';
+
+            card.innerHTML = `
+                <i class="fas fa-quote-left quote-icon"></i>
+                <div class="stars">${starHtml}</div>
+                <p>${text.trim()}</p>
+                <h4>${name.trim()}</h4>
+                <span class="platform-tag">${platform ? platform.trim() : 'Recenzia'}</span>
+            `;
+            container.appendChild(card);
+        });
+
+        // 2. Logika prelinania (Cyklovac)
+        const cards = container.querySelectorAll('.review-card-sidebar');
+        let currentIndex = 0;
+
+        if (cards.length > 1) {
+            setInterval(() => {
+                cards[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % cards.length;
+                cards[currentIndex].classList.add('active');
+            }, 6000); // Kazdych 6 sekund sa vymeni recenzia
+        }
+
+    } catch (err) {
+        container.innerHTML = '<p style="padding:20px">Ziadne nove recenzie.</p>';
+    }
+}
+
+// Spustit po nacitani
+document.addEventListener('DOMContentLoaded', initReviewSidebar);
