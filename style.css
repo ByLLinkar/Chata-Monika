@@ -470,3 +470,50 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     /* Návrat do stavu pred štartom */
     100% { opacity: 0; z-index: 0; }
 }
+
+/* --- Review slideshow --- */
+.review-slideshow-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5; /* Rovnake ako tvoj slideshow fotiek */
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    background: white;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-card-sidebar {
+    position: absolute;
+    inset: 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; /* Wow effect prelinania */
+    background: white;
+}
+
+.review-card-sidebar.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Styl textu v sidebare */
+.review-card-sidebar i.fa-star { color: #ffc107; font-size: 0.8rem; margin: 2px; }
+.review-card-sidebar .quote-icon { font-size: 2rem; color: var(--primary); opacity: 0.2; margin-bottom: 10px; }
+.review-card-sidebar p { font-style: italic; color: #444; font-size: 1.1rem; line-height: 1.5; }
+.review-card-sidebar h4 { margin-top: 15px; color: var(--primary); font-size: 1rem; }
+.review-card-sidebar .platform-tag { 
+    font-size: 0.7rem; 
+    text-transform: uppercase; 
+    color: #999; 
+    margin-top: 5px;
+    font-weight: bold;
+}
