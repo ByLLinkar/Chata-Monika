@@ -22,14 +22,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 1. OVLADANIE SLIDEROV ---
+    // --- 1. OVLADANIE SLIDEROV (OPRAVENE PRE VIEWPORT) ---
     document.querySelectorAll('.slider-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const id = btn.dataset.target;
             const track = document.querySelector(`.slider-track[data-id="${id}"]`);
+            
             if (track) {
+                // DOLEZITE: Skrolujeme viewport (rodic tracku), nie track samotny
+                const viewport = track.parentElement; 
                 const scrollAmount = 320; 
-                track.scrollBy({ left: btn.classList.contains('next') ? scrollAmount : -scrollAmount, behavior: 'smooth' });
+
+                viewport.scrollBy({ 
+                    left: btn.classList.contains('next') ? scrollAmount : -scrollAmount, 
+                    behavior: 'smooth' 
+                });
             }
         });
     });
@@ -56,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lightbox.classList.remove('active');
         }
     });
+});
 
     // --- 3. MENU (HAMBURGER) ---
     const mobileMenu = document.getElementById('mobile-menu');
