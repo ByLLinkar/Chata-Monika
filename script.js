@@ -100,34 +100,104 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 4. LIGHTBOX ---
-    const lightbox = document.createElement('div');
-    lightbox.className = 'lightbox';
+    // --- 4. LIGHTBOX + SLIDER ---
+const lightbox = document.createElement('div');
+lightbox.className = 'lightbox';
 
-    const lightboxImg = document.createElement('img');
+const lightboxImg = document.createElement('img');
 
-    const closeBtn = document.createElement('span');
-    closeBtn.innerHTML = '&times;';
-    closeBtn.className = 'close-lightbox';
+const closeBtn = document.createElement('span');
+closeBtn.innerHTML = '&times;';
+closeBtn.className = 'close-lightbox';
 
-    lightbox.appendChild(closeBtn);
-    lightbox.appendChild(lightboxImg);
-    document.body.appendChild(lightbox);
+// NAV BUTTONS
+const prevBtn = document.createElement('button');
+prevBtn.className = 'lightbox-prev';
+prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
 
-    document.addEventListener('click', (e) => {
+const nextBtn = document.createElement('button');
+nextBtn.className = 'lightbox-next';
+nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
 
-        const clickedImg = e.target.closest('.slide img');
+lightbox.appendChild(closeBtn);
+lightbox.appendChild(prevBtn);
+lightbox.appendChild(lightboxImg);
+lightbox.appendChild(nextBtn);
 
-        if (clickedImg) {
-            lightboxImg.src = clickedImg.src;
-            lightbox.classList.add('active');
-        }
+document.body.appendChild(lightbox);
 
-        if (e.target === lightbox || e.target === closeBtn) {
-            lightbox.classList.remove('active');
-        }
+let currentImages = [];
+let currentIndex = 0;
 
-    });
+// OPEN
+document.addEventListener('click', (e) => {
+
+    const clickedImg = e.target.closest('.slide img');
+
+    if (clickedImg) {
+        const track = clickedImg.closest('.slider-track');
+        currentImages = Array.from(track.querySelectorAll('img'));
+
+        currentIndex = currentImages.indexOf(clickedImg);
+
+        showImage();
+        lightbox.classList.add('active');
+    }
+
+    if (e.target === lightbox || e.target === closeBtn) {
+        lightbox.classList.remove('active');
+    }
+
+});
+
+// SHOW IMAGE
+function showImage() {
+    if (currentImages.length > 0) {
+        lightboxImg.src = currentImages[currentIndex].src;
+    }
+}
+
+// NEXT
+function nextImage() {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    showImage();
+}
+
+// PREV
+function prevImage() {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    showImage();
+}
+
+// BUTTONS
+nextBtn.addEventListener('click', nextImage);
+prevBtn.addEventListener('click', prevImage);
+
+// KEYBOARD
+document.addEventListener('keydown', (e) => {
+
+    if (!lightbox.classList.contains('active')) return;
+
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+    if (e.key === 'Escape') lightbox.classList.remove('active');
+
+});
+
+// SWIPE (LIGHTBOX)
+let startX = 0;
+
+lightbox.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener('touchend', (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+
+    if (Math.abs(diff) > 50) {
+        diff > 0 ? nextImage() : prevImage();
+    }
+});
 
 
     // --- 5. ESC CLOSE ---
