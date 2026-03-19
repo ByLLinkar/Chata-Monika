@@ -28,6 +28,9 @@ body {
     overflow-x: hidden;
 }
 
+section[id] { scroll-margin-top: 100px; }
+
+
 /* --- TOPBAR --- */
 .topbar {
     background: var(--primary);
