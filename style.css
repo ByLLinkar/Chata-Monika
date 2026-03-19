@@ -211,6 +211,7 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 }
 
 /* --- GALERIA A SLIDERY --- */
+
 .gallery-category { 
     margin: 60px 0; 
     position: relative; 
@@ -224,26 +225,40 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     z-index: 5;
 }
 
-/* Obal pre cely slider vratane tlacidiel */
+
+/* --- SLIDER CONTAINER --- */
+
 .slider-container {
     position: relative;
     width: 100%;
-    display: flex;
-    align-items: center;
 }
 
-/* Toto je "okno", cez ktore vidime fotky a ktore sa skroluje */
+
+/* --- VIEWPORT (SCROLL AREA) --- */
+
 .slider-viewport {
     width: 100%;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Firefox */
+
+    -webkit-overflow-scrolling: touch; /* smooth iOS */
+
+    scrollbar-width: none;
     padding: 20px 0;
+
+    cursor: grab;
+}
+
+.slider-viewport:active {
+    cursor: grabbing;
 }
 
 .slider-viewport::-webkit-scrollbar { 
-    display: none; /* Chrome, Safari */
+    display: none;
 }
+
+
+/* --- TRACK --- */
 
 .slider-track {
     display: flex;
@@ -251,19 +266,28 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     width: max-content;
 }
 
+
+/* --- SLIDE --- */
+
 .slide {
     scroll-snap-align: start;
+
     min-width: 300px;
     height: 400px;
+
     border-radius: 20px;
     overflow: hidden;
+
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .slide:hover {
-    transform: scale(1.03);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transform: scale(1.04);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
+
+
+/* --- IMAGE --- */
 
 .slide img {
     width: 100%;
@@ -272,24 +296,35 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     display: block;
 }
 
-/* --- OVLADANIE (Fixne umiestnene tlacidla) --- */
+
+/* --- BUTTONS --- */
+
 .slider-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+
     width: 50px;
     height: 50px;
+
     border: none;
     border-radius: 50%;
-    background: rgba(0,0,0,0.7);
+
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+
     color: white;
     cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 100; /* Musi byt nad viewportom */
+
+    z-index: 100;
+
     transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
 .slider-btn:hover { 
@@ -300,23 +335,42 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 .slider-btn.prev { left: 10px; }
 .slider-btn.next { right: 10px; }
 
-/* Skrytie tlacidiel na mobiloch, kde funguje swipe prstom (volitelne) */
+
+/* --- MOBILE --- */
+
 @media (max-width: 768px) {
-    .slide { min-width: 260px; height: 350px; }
-    .slider-btn { width: 40px; height: 40px; font-size: 0.8rem; }
+
+    .slide {
+        min-width: 260px;
+        height: 320px;
+    }
+
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+
 }
 
+
 /* --- LIGHTBOX --- */
+
 .lightbox {
     position: fixed;
     inset: 0;
+
     background: rgba(0,0,0,0.95);
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     opacity: 0;
     pointer-events: none;
+
     transition: 0.3s;
+
     z-index: 9999;
     padding: 20px;
 }
@@ -326,21 +380,35 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     pointer-events: all; 
 }
 
+
 .lightbox img {
     max-width: 90%;
     max-height: 80vh;
+
     border-radius: 12px;
+
     box-shadow: 0 0 50px rgba(0,0,0,0.5);
 }
+
+
+/* CLOSE BUTTON */
 
 .close-lightbox {
     position: absolute;
     top: 20px;
     right: 30px;
+
     color: white;
     font-size: 3rem;
+
     cursor: pointer;
     line-height: 1;
+
+    transition: 0.2s;
+}
+
+.close-lightbox:hover {
+    transform: scale(1.1);
 }
 
 /* --- SIDEBAR A SLIDESHOW (INDEX.html) --- */
