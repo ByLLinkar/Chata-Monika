@@ -30,6 +30,7 @@ body {
 
 section[id] { scroll-margin-top: 100px; }
 
+
 /* --- TOPBAR --- */
 .topbar {
     background: var(--primary);
@@ -88,9 +89,9 @@ nav::after {
 .logo a { text-decoration: none; color: var(--primary); display: block; transition: var(--transition); }
 .logo a span { font-weight: 300; color: var(--accent); margin-left: 2px; }
 
-/* --- MENU TOGGLE --- */
+/* --- MENU TOGGLE (HAMBURGER) --- */
 .menu-toggle {
-    display: none;
+    display: none; /* Skryté na desktope */
     cursor: pointer;
     font-size: 1.5rem;
     color: var(--primary);
@@ -101,6 +102,32 @@ nav::after {
 .nav-links a { text-decoration: none; color: var(--dark); margin-left: 25px; font-weight: 500; font-size: 0.95rem; transition: var(--transition); }
 .nav-links a:hover { color: var(--primary); }
 .btn-small { background: var(--primary); color: var(--white) !important; padding: 10px 22px; border-radius: 50px; font-size: 0.85rem; }
+
+/* --- MOBILNÁ RESPONSIVITA (DOPLNENIE) --- */
+@media (max-width: 768px) {
+    .menu-toggle { display: block; } /* Zobraziť hamburger */
+    
+    .nav-links {
+        display: none; /* Pôvodne skryté */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Pod navigáciou */
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .nav-links.active { display: flex; } /* Zobraziť po kliknutí cez JS */
+
+    .nav-links a {
+        margin: 15px 0;
+        font-size: 1.2rem;
+        display: block;
+    }
+}
 
 /* --- HERO SEKCIÁ --- */
 header {
@@ -115,38 +142,315 @@ header {
 }
 
 .hero-content h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 20px; font-weight: 800; }
+.btn { background: var(--primary); color: var(--white); padding: 18px 45px; text-decoration: none; border-radius: 50px; font-weight: 600; display: inline-block; transition: var(--transition); }
+.btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
-/* --- HLAVNÝ LAYOUT (OPRAVENÝ) --- */
+/* --- HLAVNÝ LAYOUT --- */
 .main-layout {
     display: grid;
-    grid-template-columns: 1fr 350px; /* Text vlavo, Sidebar vpravo */
+    grid-template-columns: 350px 1fr;
     gap: 60px;
     padding: 120px 5%;
     max-width: 1400px;
     margin: auto;
-    align-items: start;
 }
+
+
 
 /* --- OBSAHOVÁ ČASŤ --- */
 .section-header { margin-bottom: 40px; }
 .section-header h2 { font-size: clamp(2rem, 5vw, 2.8rem); color: var(--primary); margin-bottom: 15px; }
 .bg-light { background-color: var(--light); padding: 80px 50px; border-radius: 40px; }
 
+/* --- CENNÍK --- */
+.pricing-table { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px; }
+.price-item { background: var(--white); padding: 40px; border-radius: 25px; text-align: center; box-shadow: var(--shadow); }
+
 /* --- KONTAKT A MAPA --- */
+.contact-section { margin-top: 80px; }
 .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
 .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; font-size: 1.2rem; }
 .contact-item i { font-size: 1.5rem; color: var(--primary); width: 30px; }
 .map-container { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); height: 400px; }
 
-/* --- ZJEDNOTENÝ SIDEBAR --- */
-.sidebar-sticky { 
-    position: sticky; 
-    top: 130px; 
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* --- SOCIÁLNE SIETE (Zjednotené a čisté) --- */
+.contact-socials { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+.contact-socials a { display: flex; align-items: center; gap: 15px; text-decoration: none !important; color: var(--dark) !important; font-weight: 500; padding: 12px 20px; border-radius: 12px; transition: var(--transition); border: 1px solid rgba(0, 0, 0, 0.05); }
+
+/* Hover efekt */
+.contact-socials a:hover {
+    background: var(--light);
+    border-color: var(--primary);
+    color: var(--primary) !important; /* Text sa pri hoveri zafarbí na primárnu */
+    transform: translateX(5px);
 }
 
+/* Ikony v odkazoch */
+.contact-socials a i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    width: 30px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+/* --- AKTIVITY --- */
+.activities { background: #f0f4f0; padding: 40px; border-left: 6px solid var(--primary); border-radius: 15px; margin: 40px 0; }
+
+/* --- FOOTER --- */
+footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6); text-align: center; }
+
+/* --- RESPONSIVITA --- */
+@media (max-width: 1100px) {
+    .main-layout { grid-template-columns: 1fr; }
+    .sidebar-sticky { position: static; order: 2; }
+    .slideshow-container { aspect-ratio: 16 / 9; }
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .contact-wrapper { grid-template-columns: 1fr; }
+    .bg-light { padding: 40px 20px; }
+}
+
+/* --- GALERIA A SLIDERY --- */
+
+.gallery-category { 
+    margin: 60px 0; 
+    position: relative; 
+}
+
+.gallery-category h2 { 
+    color: var(--primary); 
+    font-size: 1.8rem; 
+    margin-bottom: 25px; 
+    position: relative; 
+    z-index: 5;
+}
+
+
+/* --- SLIDER CONTAINER --- */
+
+.slider-container {
+    position: relative;
+    width: 100%;
+}
+
+
+/* --- VIEWPORT (SCROLL AREA) --- */
+
+.slider-viewport {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    -webkit-overflow-scrolling: touch; /* smooth iOS */
+
+    scrollbar-width: none;
+    padding: 20px 0;
+
+    cursor: grab;
+}
+
+.slider-viewport:active {
+    cursor: grabbing;
+}
+
+.slider-viewport::-webkit-scrollbar { 
+    display: none;
+}
+
+
+/* --- TRACK --- */
+
+.slider-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+}
+
+
+/* --- SLIDE --- */
+
+.slide {
+    scroll-snap-align: start;
+
+    min-width: 300px;
+    height: 400px;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.slide:hover {
+    transform: scale(1.04);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+
+/* --- IMAGE --- */
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* --- BUTTONS --- */
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+
+    color: white;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 100;
+
+    transition: 0.3s;
+
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.slider-btn:hover { 
+    background: var(--primary); 
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+
+
+/* --- MOBILE --- */
+
+@media (max-width: 768px) {
+
+    .slide {
+        min-width: 260px;
+        height: 320px;
+    }
+
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+
+}
+
+
+/* --- LIGHTBOX --- */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.95);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.3s;
+
+    z-index: 9999;
+    padding: 20px;
+}
+
+.lightbox.active { 
+    opacity: 1; 
+    pointer-events: all; 
+}
+
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80vh;
+
+    border-radius: 12px;
+
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background: rgba(0,0,0,0.6);
+    border: none;
+    color: white;
+    
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 10;
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: var(--primary);
+}
+
+
+/* CLOSE BUTTON */
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    color: white;
+    font-size: 3rem;
+
+    cursor: pointer;
+    line-height: 1;
+
+    transition: 0.2s;
+}
+
+.close-lightbox:hover {
+    transform: scale(1.1);
+}
+
+/* --- ZJEDNOTENY SIDEBAR --- */
+.sidebar-sticky { 
+    position: sticky; 
+    top: 130px; /* Vzdialenost od vrchu pri skrolovani */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Medzera medzi fotkami a recenziami */
+}
+
+/* Spolocny zaklad pre oba boxy */
 .sidebar-box {
     position: relative; 
     width: 100%; 
@@ -157,42 +461,19 @@ header {
     background: white;
 }
 
-/* --- OPRAVA FOTOSLIDESHOW --- */
-.slideshow-container {
-    position: relative;
-    /* Ak mas .sidebar-box s aspect-ratio, toto je v poriadku */
-    background-color: #f0f0f0; /* Ak uvidis sivu plochu, CSS funguje, ale fotky nenacitalo */
-}
-
-/* Toto zabezpeci, ze slajdy budu viditelne vnutri kontajnera */
-.slideshow-container .sidebar-slides {
+/* --- FOTOSLIDESHOW --- */
+.slideshow-container .sidebar-slides { 
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    width: 100%; 
+    height: 100%; 
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     opacity: 0;
-    z-index: 1;
     animation: slideSequence 15s infinite;
 }
 
-/* Cesty k obrazkom - SKONTROLUJ CI MAS PRIECINOK 'img' A V NOM TIETO NAZVY */
-.slide-1 { background-image: url('img/slide1.webp'); animation-delay: 0s; opacity: 1; }
-.slide-2 { background-image: url('img/slide2.webp'); animation-delay: 5s; }
-.slide-3 { background-image: url('img/slide3.webp'); animation-delay: 10s; }
-
-/* Klucova animacia - musi menit opacity a z-index */
-@keyframes slideSequence {
-    0%, 25% { opacity: 1; z-index: 2; }
-    33%, 100% { opacity: 0; z-index: 1; }
-}
-
-/* --- RECENZIE (VYČISTENÉ) --- */
+/* --- RECENZIE --- */
 .review-card-sidebar {
     position: absolute;
     inset: 0;
@@ -207,61 +488,44 @@ header {
     transition: opacity 1.5s ease-in-out;
 }
 
-.review-card-sidebar.active { opacity: 1; z-index: 2; }
-.review-card-sidebar .quote-icon { font-size: 2.5rem; color: var(--primary); opacity: 0.15; margin-bottom: 10px; }
+.review-card-sidebar.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* --- RESPONZIVITA (MOBILY A TABLETY) --- */
+@media (max-width: 992px) {
+    .sidebar-sticky {
+        position: static; /* Na mobiloch uz nebude "visiet" */
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Fotka a recenzia budu vedla seba */
+        gap: 15px;
+        margin-top: 30px;
+    }
+    
+    .sidebar-box {
+        aspect-ratio: 1 / 1; /* Na mobiloch mozu byt stvorcove */
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar-sticky {
+        grid-template-columns: 1fr; /* Na malych mobiloch pod sebou */
+    }
+}
+
+/* Zvysok stylingu (hviezdicky, texty) ostava nezmeneny */
+.review-card-sidebar .quote-icon { font-size: 2rem; color: var(--primary); opacity: 0.2; margin-bottom: 10px; }
+.review-card-sidebar p { font-style: italic; color: #444; font-size: 1.1rem; line-height: 1.5; margin: 0; }
+.review-card-sidebar h4 { margin-top: 15px; color: var(--primary); font-size: 1rem; }
+.review-card-sidebar i.fa-star { color: #ffc107; font-size: 0.8rem; margin: 2px; }
 .review-card-sidebar p { font-style: italic; color: #333; font-size: 1.05rem; line-height: 1.6; margin: 0; }
 .review-card-sidebar h4 { margin-top: 15px; color: var(--primary); font-size: 1rem; font-weight: bold; }
-.review-card-sidebar i.fa-star { color: #ffc107; font-size: 0.8rem; margin: 2px; }
 .review-card-sidebar .platform-tag { font-size: 0.65rem; text-transform: uppercase; color: #bbb; margin-top: 8px; letter-spacing: 1px; }
 
-/* --- ANIMÁCIA --- */
+/* Animacia fotiek ostava rovnaka */
 @keyframes slideSequence {
     0%, 25% { opacity: 1; z-index: 1; }
     33% { opacity: 0; z-index: 1; }
     34%, 100% { opacity: 0; z-index: 0; }
 }
-
-/* --- RESPONZIVITA (ZJEDNOTENÁ) --- */
-@media (max-width: 1100px) {
-    .main-layout { grid-template-columns: 1fr; padding-top: 80px; }
-    .sidebar-gallery { order: 2; }
-    .sidebar-sticky {
-        position: static;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-    .sidebar-box { aspect-ratio: 1 / 1; }
-}
-
-@media (max-width: 768px) {
-    .menu-toggle { display: block; }
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: white;
-        padding: 20px 0;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-    }
-    .nav-links.active { display: flex; }
-    .nav-links a { margin: 15px 0; font-size: 1.2rem; }
-    
-    .sidebar-sticky { grid-template-columns: 1fr; }
-    .contact-wrapper { grid-template-columns: 1fr; }
-}
-
-/* --- SLIDER & LIGHTBOX (PONECHANÉ) --- */
-.slider-viewport { width: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 20px 0; }
-.slider-track { display: flex; gap: 20px; width: max-content; }
-.slide { scroll-snap-align: start; min-width: 300px; height: 400px; border-radius: 20px; overflow: hidden; transition: var(--transition); }
-.slide img { width: 100%; height: 100%; object-fit: cover; }
-.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.3s; z-index: 9999; }
-.lightbox.active { opacity: 1; pointer-events: all; }
-.lightbox img { max-width: 90%; max-height: 80vh; border-radius: 12px; }
-.close-lightbox { position: absolute; top: 20px; right: 30px; color: white; font-size: 3rem; cursor: pointer; }
-
-footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6); text-align: center; }
