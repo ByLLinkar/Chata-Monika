@@ -483,7 +483,7 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 
     opacity: 0;
 
-    animation: slideSequence 15s infinite;
+    animation: slideSequence 24s infinite;
     animation-fill-mode: both;
 
     will-change: opacity, transform; /* performance boost */
@@ -492,8 +492,8 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 
 /* --- IMAGES --- */
 .slide-1 { background-image: url('img/slide1.webp'); animation-delay: 0s; }
-.slide-2 { background-image: url('img/slide2.webp'); animation-delay: 5s; }
-.slide-3 { background-image: url('img/slide3.webp'); animation-delay: 10s; }
+.slide-2 { background-image: url('img/slide2.webp'); animation-delay: 8s; }
+.slide-3 { background-image: url('img/slide3.webp'); animation-delay: 16s; }
 
 
 /* --- RECENZIE --- */
