@@ -444,13 +444,12 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 /* --- ZJEDNOTENY SIDEBAR --- */
 .sidebar-sticky { 
     position: sticky; 
-    top: 130px; /* Vzdialenost od vrchu pri skrolovani */
+    top: 130px; 
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Medzera medzi fotkami a recenziami */
+    gap: 20px;
 }
 
-/* Spolocny zaklad pre oba boxy */
 .sidebar-box {
     position: relative; 
     width: 100%; 
@@ -458,7 +457,7 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     overflow: hidden; 
     border-radius: 20px; 
     box-shadow: var(--shadow);
-    background: white;
+    background: #f0f0f0; /* Pomocna farba, ak nevidis fotky, uvidis aspon box */
 }
 
 /* --- FOTOSLIDESHOW --- */
@@ -469,9 +468,17 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     height: 100%; 
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat; /* Zabrani opakovaniu malej fotky */
     opacity: 0;
     animation: slideSequence 15s infinite;
 }
+
+/* DOLEZITE: Kazda fotka musi mat svoj delay a cestu.
+   Ak mas CSS v priecinku (napr. css/style.css), pridaj pred img dve bodky: ../img/
+*/
+.slide-1 { background-image: url('img/slide1.webp'); animation-delay: 0s; }
+.slide-2 { background-image: url('img/slide2.webp'); animation-delay: 5s; }
+.slide-3 { background-image: url('img/slide3.webp'); animation-delay: 10s; }
 
 /* --- RECENZIE --- */
 .review-card-sidebar {
@@ -493,37 +500,34 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     z-index: 2;
 }
 
-/* --- RESPONZIVITA (MOBILY A TABLETY) --- */
+/* --- RESPONZIVITA --- */
 @media (max-width: 992px) {
     .sidebar-sticky {
-        position: static; /* Na mobiloch uz nebude "visiet" */
+        position: static;
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Fotka a recenzia budu vedla seba */
+        grid-template-columns: 1fr 1fr;
         gap: 15px;
         margin-top: 30px;
     }
-    
     .sidebar-box {
-        aspect-ratio: 1 / 1; /* Na mobiloch mozu byt stvorcove */
+        aspect-ratio: 1 / 1;
     }
 }
 
 @media (max-width: 600px) {
     .sidebar-sticky {
-        grid-template-columns: 1fr; /* Na malych mobiloch pod sebou */
+        grid-template-columns: 1fr;
     }
 }
 
-/* Zvysok stylingu (hviezdicky, texty) ostava nezmeneny */
+/* --- STYL TEXTU --- */
 .review-card-sidebar .quote-icon { font-size: 2rem; color: var(--primary); opacity: 0.2; margin-bottom: 10px; }
-.review-card-sidebar p { font-style: italic; color: #444; font-size: 1.1rem; line-height: 1.5; margin: 0; }
-.review-card-sidebar h4 { margin-top: 15px; color: var(--primary); font-size: 1rem; }
-.review-card-sidebar i.fa-star { color: #ffc107; font-size: 0.8rem; margin: 2px; }
 .review-card-sidebar p { font-style: italic; color: #333; font-size: 1.05rem; line-height: 1.6; margin: 0; }
 .review-card-sidebar h4 { margin-top: 15px; color: var(--primary); font-size: 1rem; font-weight: bold; }
+.review-card-sidebar i.fa-star { color: #ffc107; font-size: 0.8rem; margin: 2px; }
 .review-card-sidebar .platform-tag { font-size: 0.65rem; text-transform: uppercase; color: #bbb; margin-top: 8px; letter-spacing: 1px; }
 
-/* Animacia fotiek ostava rovnaka */
+/* Animacia fotiek */
 @keyframes slideSequence {
     0%, 25% { opacity: 1; z-index: 1; }
     33% { opacity: 0; z-index: 1; }
