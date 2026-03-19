@@ -69,18 +69,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // --- 3. SWIPE (mobile/tablet) ---
-    document.querySelectorAll('.slider-container').forEach(container => {
+    // --- 3. SWIPE ---
+    document.querySelectorAll('.slider-viewport').forEach(viewport => {
 
         let startX = 0;
         let isDown = false;
 
-        container.addEventListener('touchstart', (e) => {
+        viewport.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
             isDown = true;
         });
 
-        container.addEventListener('touchend', (e) => {
+        viewport.addEventListener('touchend', (e) => {
 
             if (!isDown) return;
 
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const diff = startX - endX;
 
             if (Math.abs(diff) > 50) {
-                container.scrollBy({
+                viewport.scrollBy({
                     left: diff > 0 ? 300 : -300,
                     behavior: 'smooth'
                 });
@@ -114,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.appendChild(lightboxImg);
     document.body.appendChild(lightbox);
 
-
     document.addEventListener('click', (e) => {
 
         const clickedImg = e.target.closest('.slide img');
@@ -133,19 +132,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 5. ESC CLOSE ---
     document.addEventListener('keydown', (e) => {
-
         if (e.key === 'Escape') {
             lightbox.classList.remove('active');
         }
-
     });
 
-});
-    // --- 3. MENU (HAMBURGER) ---
+
+    // --- 6. MENU (HAMBURGER) ---
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
-    
+
     if (mobileMenu && navLinks) {
+
         const menuIcon = mobileMenu.querySelector('i');
 
         mobileMenu.addEventListener('click', () => {
@@ -161,5 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 menuIcon.classList.remove('fa-times');
             });
         });
+
     }
+
 });
