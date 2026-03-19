@@ -152,35 +152,6 @@ header {
     margin: auto;
 }
 
-/* --- SIDEBAR A SLIDESHOW --- */
-.sidebar-sticky { position: sticky; top: 130px; }
-.slideshow-container { position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 20px; box-shadow: var(--shadow); }
-.slideshow-container img { width: 100%; height: 100%; object-fit: cover; }
-
-.sidebar-slides {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    animation: slideSequence 15s infinite;
-}
-
-/* Optimalizované prelínanie fotiek */
-.slide-1 { background-image: url('img/slide1.webp'); animation-delay: 0s; }
-.slide-2 { background-image: url('img/slide2.webp'); animation-delay: 5s; }
-.slide-3 { background-image: url('img/slide3.webp'); animation-delay: 10s; }
-
-@keyframes slideSequence {
-    /* Fotka je plne viditeľná */
-    0%, 25% { opacity: 1; z-index: 1; }
-    /* Fotka sa začína strácať */
-    33% { opacity: 0; z-index: 1; }
-    /* Fotka je skrytá a v pozadí */
-    34%, 99% { opacity: 0; z-index: 0; }
-    /* Návrat do stavu pred štartom */
-    100% { opacity: 0; z-index: 0; }
-}
 
 
 /* --- OBSAHOVÁ ČASŤ --- */
@@ -239,8 +210,12 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     .bg-light { padding: 40px 20px; }
 }
 
-/* --- GALÉRIA A SLIDERY --- */
-.gallery-category { margin: 60px 0; }
+/* --- GALERIA A SLIDERY --- */
+.gallery-category { 
+    margin: 60px 0; 
+    position: relative; 
+}
+
 .gallery-category h2 { 
     color: var(--primary); 
     font-size: 1.8rem; 
@@ -249,17 +224,26 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     z-index: 5;
 }
 
+/* Obal pre cely slider vratane tlacidiel */
 .slider-container {
     position: relative;
     width: 100%;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    display: block; /* Opravené pre lepšiu stabilitu */
-    padding: 20px 0;
-    scrollbar-width: none;
+    display: flex;
+    align-items: center;
 }
 
-.slider-container::-webkit-scrollbar { display: none; }
+/* Toto je "okno", cez ktore vidime fotky a ktore sa skroluje */
+.slider-viewport {
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    padding: 20px 0;
+}
+
+.slider-viewport::-webkit-scrollbar { 
+    display: none; /* Chrome, Safari */
+}
 
 .slider-track {
     display: flex;
@@ -288,28 +272,39 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     display: block;
 }
 
-/* --- OVLÁDANIE --- */
+/* --- OVLADANIE (Fixne umiestnene tlacidla) --- */
 .slider-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border: none;
     border-radius: 50%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.7);
     color: white;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
+    z-index: 100; /* Musi byt nad viewportom */
     transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.slider-btn:hover { background: rgba(0,0,0,0.9); }
+.slider-btn:hover { 
+    background: var(--primary); 
+    transform: translateY(-50%) scale(1.1);
+}
+
 .slider-btn.prev { left: 10px; }
 .slider-btn.next { right: 10px; }
+
+/* Skrytie tlacidiel na mobiloch, kde funguje swipe prstom (volitelne) */
+@media (max-width: 768px) {
+    .slide { min-width: 260px; height: 350px; }
+    .slider-btn { width: 40px; height: 40px; font-size: 0.8rem; }
+}
 
 /* --- LIGHTBOX --- */
 .lightbox {
@@ -326,13 +321,16 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     padding: 20px;
 }
 
-.lightbox.active { opacity: 1; pointer-events: all; }
+.lightbox.active { 
+    opacity: 1; 
+    pointer-events: all; 
+}
 
 .lightbox img {
     max-width: 90%;
     max-height: 80vh;
     border-radius: 12px;
-    box-shadow: 0 0 50px rgba(0,0,0,0.3);
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
 }
 
 .close-lightbox {
@@ -342,4 +340,35 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
     color: white;
     font-size: 3rem;
     cursor: pointer;
+    line-height: 1;
+}
+
+/* --- SIDEBAR A SLIDESHOW (INDEX.html) --- */
+.sidebar-sticky { position: sticky; top: 130px; }
+.slideshow-container { position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 20px; box-shadow: var(--shadow); }
+.slideshow-container img { width: 100%; height: 100%; object-fit: cover; }
+
+.sidebar-slides {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: slideSequence 15s infinite;
+}
+
+/* Optimalizované prelínanie fotiek */
+.slide-1 { background-image: url('img/slide1.webp'); animation-delay: 0s; }
+.slide-2 { background-image: url('img/slide2.webp'); animation-delay: 5s; }
+.slide-3 { background-image: url('img/slide3.webp'); animation-delay: 10s; }
+
+@keyframes slideSequence {
+    /* Fotka je plne viditeľná */
+    0%, 25% { opacity: 1; z-index: 1; }
+    /* Fotka sa začína strácať */
+    33% { opacity: 0; z-index: 1; }
+    /* Fotka je skrytá a v pozadí */
+    34%, 99% { opacity: 0; z-index: 0; }
+    /* Návrat do stavu pred štartom */
+    100% { opacity: 0; z-index: 0; }
 }
