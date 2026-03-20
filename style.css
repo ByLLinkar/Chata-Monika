@@ -615,3 +615,56 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 
     100% { opacity: 0; }
 }
+
+/* --- PARTNERSKA REKLAMA --- */
+.partner-section {
+    padding: 40px 5%;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+}
+
+.partner-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 30px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    background: var(--light);
+    transition: var(--transition);
+}
+
+.partner-container:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+    border-color: var(--primary);
+}
+
+.partner-container span {
+    font-size: 0.9rem;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.partner-logo {
+    height: 35px; /* Upravte podla potreby loga */
+    width: auto;
+    filter: grayscale(100%); /* Volitelne: logo bude sede a zafarbí sa pri hoveri */
+    transition: var(--transition);
+    opacity: 0.7;
+}
+
+.partner-container:hover .partner-logo {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Responzivita pre mobil */
+@media (max-width: 600px) {
+    .partner-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
