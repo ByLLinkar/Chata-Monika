@@ -630,7 +630,7 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 .partner-description a:hover { color: var(--primary-dark); border-bottom-color: var(--primary); background-color: rgba(45, 90, 39, 0.05); }
 
 /* Responzivita pre mobil */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .partner-section { padding: 40px 20px; }
     .partner-header { flex-direction: column; gap: 10px; }
     .partner-description { font-size: 0.95rem; text-align: justify; /* Na mobile to moze vyzerat lepsie */ }
