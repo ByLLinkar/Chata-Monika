@@ -619,69 +619,20 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 /* --- PARTNERSKA SEKCIÁ (MEGAUBYTOVANIE) --- */
 .partner-section { padding: 60px 5%; background-color: var(--white); border-top: 1px solid rgba(0, 0, 0, 0.1); display: flex; justify-content: center; }
 .partner-text-container { max-width: 900px; padding: 30px; background: var(--white); border-radius: 20px; box-shadow: var(--shadow); text-align: center; transition: var(--transition); border: 1px solid rgba(0, 0, 0, 0.05); }
-
-.partner-text-container:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary);
-}
-
-.partner-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.partner-logo-small {
-    height: 30px;
-    width: auto;
-    transition: var(--transition);
-}
-
-.partner-header span {
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--primary);
-}
-
-.partner-description {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #555;
-    margin: 0;
-}
+.partner-text-container:hover { transform: translateY(-5px); border-color: var(--primary); }
+.partner-header { display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px; }
+.partner-logo-small { height: 30px; width: auto; transition: var(--transition); }
+.partner-header span { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); }
+.partner-description { font-size: 1rem; line-height: 1.8; color: #555; margin: 0; }
 
 /* Stylovanie SEO odkazov */
-.partner-description a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition);
-    border-bottom: 1px solid rgba(45, 90, 39, 0.2);
-}
+.partner-description a { color: var(--primary); text-decoration: none; font-weight: 600; transition: var(--transition); border-bottom: 1px solid rgba(45, 90, 39, 0.2); }
 
-.partner-description a:hover {
-    color: var(--primary-dark);
-    border-bottom-color: var(--primary);
-    background-color: rgba(45, 90, 39, 0.05);
-}
+.partner-description a:hover { color: var(--primary-dark); border-bottom-color: var(--primary); background-color: rgba(45, 90, 39, 0.05); }
 
 /* Responzivita pre mobil */
 @media (max-width: 768px) {
-    .partner-section {
-        padding: 40px 20px;
-    }
-
-    .partner-header {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .partner-description {
-        font-size: 0.95rem;
-        text-align: justify; /* Na mobile to moze vyzerat lepsie */
-    }
+    .partner-section { padding: 40px 20px; }
+    .partner-header { flex-direction: column; gap: 10px; }
+    .partner-description { font-size: 0.95rem; text-align: justify; /* Na mobile to moze vyzerat lepsie */ }
 }
