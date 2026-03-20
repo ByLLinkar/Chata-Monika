@@ -617,24 +617,8 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 }
 
 /* --- PARTNERSKA SEKCIÁ (MEGAUBYTOVANIE) --- */
-.partner-section {
-    padding: 60px 5%;
-    background-color: var(--light); /* Jemny kontrast voci bielemu telu */
-    display: flex;
-    justify-content: center;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.partner-text-container {
-    max-width: 900px; /* Aby text nebol prilis siroky na citanie */
-    padding: 30px;
-    background: var(--white);
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    text-align: center;
-    transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
+.partner-section { padding: 60px 5%; background-color: var(--white); border-top: 1px solid rgba(0, 0, 0, 0.1); display: flex; justify-content: center; }
+.partner-text-container { max-width: 900px; padding: 30px; background: var(--white); border-radius: 20px; box-shadow: var(--shadow); text-align: center; transition: var(--transition); border: 1px solid rgba(0, 0, 0, 0.05); }
 
 .partner-text-container:hover {
     transform: translateY(-5px);
