@@ -275,19 +275,30 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 .slide {
     scroll-snap-align: start;
 
-    min-width: 300px;
+    /* OPRAVA: flex a width zabezpecia stabilitu rozmerov */
+    flex: 0 0 300px;
+    width: 300px;
     height: 400px;
+
+    /* Volitelne: Background zabrani blikaniu bielej plochy kym sa nacita img */
+    background: #f0f0f0; 
 
     border-radius: 20px;
     overflow: hidden;
 
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    
+    /* Zabezpeci, ze hover efekt (scale) nebude orezany okolitym kontajnerom */
+    position: relative;
+    z-index: 1;
 }
 
 .slide:hover {
     transform: scale(1.04);
     box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    z-index: 10;
 }
+
 
 
 /* --- IMAGE --- */
@@ -344,7 +355,9 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 @media (max-width: 768px) {
 
     .slide {
-        min-width: 260px;
+        /* OPRAVA: flex a width držia box na 260px bez ohľadu na fotku */
+        flex: 0 0 260px;
+        width: 260px;
         height: 320px;
     }
 
@@ -352,9 +365,12 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
         width: 40px;
         height: 40px;
         font-size: 0.8rem;
+        /* Voliteľné: na mobile sa často tlačidlá skryjú, aby nezavadzali swipe-u */
+        /* display: none; */ 
     }
 
 }
+
 
 
 /* --- LIGHTBOX --- */
