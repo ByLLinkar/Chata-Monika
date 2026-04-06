@@ -892,42 +892,47 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 @media (max-width: 768px) {
     .object-card {
 
-/* --- DEFINITÍVNA OPRAVA PRE ADDITIONAL.HTML --- */
+/* --- ABSOLUTNY RESET PRE ADDITIONAL.HTML --- */
 
-/* Tento selektor zasiahne main IBA ak má obe triedy naraz.
-   Používame !important, aby sme prebili grid z hlavnej stránky.
+/* Musime uplne "vypnut" grid na hlavnom kontajneri, 
+   pretoze ten 350px stlpec tam stale strasi ako neviditelna stena.
 */
 main.main-layout.additional-page {
     display: block !important;
-    grid-template-columns: none !important; /* Toto odstráni ten 350px stĺpec */
+    grid-template-columns: 1fr !important; /* Zrusi 350px stlpec a nahradi ho jednym velkym */
     grid-template-areas: none !important;
     
     width: 95% !important;
     max-width: 1200px !important;
-    margin: 0 auto !important; /* Vycentrovanie na stred */
-    padding-top: 160px !important; /* Dostatočný priestor pod fixným menu */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-top: 160px !important;
     float: none !important;
 }
 
-/* Zabezpečíme, aby vnútro (article) nebolo ovplyvnené žiadnym floatom alebo gridom */
+/* Article vnutri musi tiez ignorovat vsetky stare nastavenia 
+   a vycentrovat sa nezavisle.
+*/
 .additional-page .content-area {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
+    float: none !important;
 }
 
-/* Oprava mriežky kariet, aby boli na tablete pekne pod sebou alebo 2 vedľa seba */
+/* Karty objektov */
 .object-grid {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)) !important;
+    /* Auto-fit sa postara o to, aby sa na sirku tabletu zmestili 2 vedla seba */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important; 
     gap: 30px !important;
     margin-top: 40px !important;
     width: 100% !important;
 }
 
-/* --- KARTY OBJEKTOV --- */
+/* --- VIZUAL KARIET --- */
 .object-card {
     background: var(--white);
     padding: 35px;
@@ -945,7 +950,6 @@ main.main-layout.additional-page {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 5px;
 }
 
 .tag {
@@ -988,7 +992,7 @@ main.main-layout.additional-page {
 .detail-list { list-style: none; padding: 0; }
 .detail-list li { margin-bottom: 8px; font-size: 0.95rem; }
 
-/* --- SPOLOČNÉ VYBAVENIE --- */
+/* --- SPOLOCNE VYBAVENIE --- */
 .common-amenities {
     margin-top: 80px;
     background: var(--light);
@@ -1018,19 +1022,21 @@ main.main-layout.additional-page {
 
 .amenity-item i { color: var(--primary); font-size: 1.2rem; }
 
-/* --- RESPONZIVITA PRE TABLETY A MOBILY --- */
-@media (max-width: 1024px) {
+/* --- RESPONZIVITA --- */
+@media (max-width: 1200px) {
+    /* Toto zachyti tablety v landscape, ktore su vacsie ako 1024px */
     main.main-layout.additional-page {
-        padding-top: 130px !important;
         width: 92% !important;
+        grid-template-columns: 1fr !important;
     }
 }
 
 @media (max-width: 768px) {
     .object-grid {
-        grid-template-columns: 1fr !important; /* Na mobile vždy 1 stĺpec */
+        grid-template-columns: 1fr !important;
     }
     .amenities-grid {
         grid-template-columns: 1fr 1fr !important;
     }
 }
+
