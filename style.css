@@ -728,9 +728,7 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 
 /* --- KOMPLETNY DOPLNOK PRE ADDITIONAL.HTML --- */
 
-/* 1. ABSOLUTNY RESET HLAVNEHO KONTAJNERA
-   Tento selektor je maximalne specificky, aby prepisal grid (350px) z hlavnej stranky.
-*/
+/* 1. ABSOLUTNY RESET HLAVNEHO KONTAJNERA */
 main.main-layout.additional-page {
     display: block !important;
     grid-template-columns: 1fr !important; 
@@ -742,6 +740,27 @@ main.main-layout.additional-page {
     padding-top: 160px !important;
     float: none !important;
 }
+
+/* --- NOVÁ ČASŤ: ÚPRAVA HLAVIČKY (h1 a p pod seba) --- */
+.additional-page .section-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    max-width: 800px !important; /* Toto prinúti text zalomiť sa pod seba */
+    margin: 0 auto 50px auto !important;
+}
+
+.additional-page .section-header h1 {
+    margin-bottom: 20px !important;
+    width: 100%;
+}
+
+.additional-page .section-header p {
+    width: 100%;
+    line-height: 1.6;
+}
+/* --------------------------------------------------- */
 
 /* 2. RESET VNUTORNEHO CLANKU */
 .additional-page .content-area {
