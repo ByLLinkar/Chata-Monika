@@ -733,44 +733,56 @@ main.main-layout.additional-page {
     display: block !important;
     grid-template-columns: 1fr !important; 
     grid-template-areas: none !important;
-    width: 95% !important;
-    max-width: 1200px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    width: 100% !important; /* Zmenené na 100%, aby hlavička mohla ísť na kraj */
+    max-width: 100% !important; 
+    margin: 0 !important;
     padding-top: 160px !important;
     float: none !important;
 }
 
-/* --- NOVÁ ČASŤ: ÚPRAVA HLAVIČKY (Sekcia na max, text na stred) --- */
+/* --- ÚPRAVA HLAVIČKY (FOTKA NA MAX ŠÍRKU) --- */
 .additional-page .section-header {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
     
-    /* Toto roztiahne sekciu na maximum */
+    /* Roztiahnutie na úplný kraj obrazovky */
     width: 100% !important;
     max-width: 100% !important; 
     
-    margin: 0 auto 50px auto !important;
-    padding: 40px 20px !important; /* Vnútorný odstup */
+    /* Sem vlož svoju fotku pozadia */
+    background-image: url('tvoja-fotka.jpg'); 
+    background-size: cover;
+    background-position: center;
+    
+    margin: 0 0 50px 0 !important;
+    padding: 80px 20px !important; /* Väčší padding pre vyniknutie fotky */
 }
 
-/* Toto obmedzí šírku nadpisu a textu, aby boli pod sebou na stred */
+/* OBMEDZENIE TEXTU (Aby nebol roztiahnutý na kraje) */
 .additional-page .section-header h1,
-.additional-page .section-header p {
-    max-width: 800px !important; 
+.additional-page .section-header p,
+.additional-page .content-area,
+.object-grid,
+.common-amenities {
+    max-width: 1200px !important; /* Toto vráti šírku obsahu na normu */
     margin-left: auto !important;
     margin-right: auto !important;
-    width: 100% !important;
+    width: 90% !important;
 }
 
 .additional-page .section-header h1 {
     margin-bottom: 20px !important;
+    font-size: 2.5rem; /* Voliteľné: Väčší nadpis na fotke */
+    color: #ffffff;    /* Ak je fotka tmavá, daj biely text */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .additional-page .section-header p {
     line-height: 1.6;
+    color: #ffffff;
+    font-size: 1.2rem;
 }
 
 /* --------------------------------------------------- */
