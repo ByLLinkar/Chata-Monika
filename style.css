@@ -892,40 +892,42 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
 @media (max-width: 768px) {
     .object-card {
 
+/* --- DEFINITÍVNA OPRAVA PRE ADDITIONAL.HTML --- */
 
-
-/* --- FINALNA OPRAVA PRE ADDITIONAL.HTML --- */
-
-/* Tento selektor musi byt velmi specificky, aby prepisal povodny grid.
-   Zrusime grid-template-columns a nastavime display block pre vsetky sirky.
+/* Tento selektor zasiahne main IBA ak má obe triedy naraz.
+   Používame !important, aby sme prebili grid z hlavnej stránky.
 */
-main.main-layout.additional-page,
-body .main-layout.additional-page {
-    display: block !important; 
-    grid-template-columns: none !important; /* Toto zrusi tych 350px vlavo */
-    width: 90% !important;
+main.main-layout.additional-page {
+    display: block !important;
+    grid-template-columns: none !important; /* Toto odstráni ten 350px stĺpec */
+    grid-template-areas: none !important;
+    
+    width: 95% !important;
     max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding-top: 140px !important;
+    margin: 0 auto !important; /* Vycentrovanie na stred */
+    padding-top: 160px !important; /* Dostatočný priestor pod fixným menu */
+    float: none !important;
 }
 
-/* Poistka pre vnutorny obsah */
+/* Zabezpečíme, aby vnútro (article) nebolo ovplyvnené žiadnym floatom alebo gridom */
 .additional-page .content-area {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* Karty objektov - upravene pre lepsiu sirku na tablete */
+/* Oprava mriežky kariet, aby boli na tablete pekne pod sebou alebo 2 vedľa seba */
 .object-grid {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important; 
-    gap: 30px;
-    margin-top: 30px;
-    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)) !important;
+    gap: 30px !important;
+    margin-top: 40px !important;
+    width: 100% !important;
 }
 
+/* --- KARTY OBJEKTOV --- */
 .object-card {
     background: var(--white);
     padding: 35px;
@@ -935,15 +937,7 @@ body .main-layout.additional-page {
     transition: var(--transition);
 }
 
-.object-card:hover {
-    transform: translateY(-5px);
-}
-
-.object-header {
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    padding-bottom: 15px;
-}
+.object-card:hover { transform: translateY(-5px); }
 
 .object-header h2 {
     font-size: 1.6rem;
@@ -951,30 +945,25 @@ body .main-layout.additional-page {
     display: flex;
     align-items: center;
     gap: 12px;
-}
-
-.object-header h2 i {
-    color: var(--primary);
+    margin-bottom: 5px;
 }
 
 .tag {
     display: inline-block;
-    background: #eef5ee; 
+    background: #eef5ee;
     color: var(--primary);
     padding: 5px 15px;
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 700;
-    margin-top: 8px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .object-info-basic {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    margin-bottom: 30px;
+    margin: 25px 0;
     background: var(--light);
     padding: 15px;
     border-radius: 15px;
@@ -988,49 +977,23 @@ body .main-layout.additional-page {
     gap: 8px;
 }
 
-.object-info-basic i {
-    color: var(--primary);
-    font-size: 1rem;
-}
-
-.detail-block {
-    margin-bottom: 25px;
-}
-
 .detail-block h3 {
     font-size: 1.1rem;
     color: var(--primary);
     margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
 }
 
-.detail-list {
-    list-style: none;
-    padding: 0;
-}
+.detail-list { list-style: none; padding: 0; }
+.detail-list li { margin-bottom: 8px; font-size: 0.95rem; }
 
-.detail-list li {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-    padding-left: 15px;
-    position: relative;
-}
-
-.detail-list li::before {
-    content: "•";
-    color: var(--accent);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-}
-
+/* --- SPOLOČNÉ VYBAVENIE --- */
 .common-amenities {
     margin-top: 80px;
     background: var(--light);
-    padding: 60px 40px;
-    border-radius: 40px;
+    padding: 50px 30px;
+    border-radius: 30px;
     text-align: center;
 }
 
@@ -1038,60 +1001,36 @@ body .main-layout.additional-page {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
     gap: 20px;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .amenity-item {
     background: var(--white);
-    padding: 20px;
-    border-radius: 15px;
+    padding: 15px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     font-weight: 600;
     box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    transition: var(--transition);
 }
 
-.amenity-item:hover {
-    background: var(--primary);
-    color: var(--white);
-}
+.amenity-item i { color: var(--primary); font-size: 1.2rem; }
 
-.amenity-item i {
-    font-size: 1.3rem;
-    color: var(--primary);
-}
-
-.amenity-item:hover i {
-    color: var(--white);
-}
-
-/* --- RESPONZIVITA --- */
+/* --- RESPONZIVITA PRE TABLETY A MOBILY --- */
 @media (max-width: 1024px) {
     main.main-layout.additional-page {
-        padding-top: 120px !important;
+        padding-top: 130px !important;
+        width: 92% !important;
     }
 }
 
 @media (max-width: 768px) {
-    .object-card {
-        padding: 25px 20px;
+    .object-grid {
+        grid-template-columns: 1fr !important; /* Na mobile vždy 1 stĺpec */
     }
-    
-    .common-amenities {
-        padding: 40px 20px;
-        border-radius: 25px;
-    }
-
     .amenities-grid {
-        grid-template-columns: 1fr 1fr !important; 
-        gap: 10px;
-    }
-
-    .amenity-item {
-        font-size: 0.85rem;
-        padding: 15px 10px;
+        grid-template-columns: 1fr 1fr !important;
     }
 }
