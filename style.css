@@ -740,22 +740,37 @@ main.main-layout.additional-page {
     float: none !important;
 }
 
-/* --- KOMPAKTNÁ HLAVIČKA (BEZ FOTKY, DEFAULT FARBY) --- */
+/* --- EXTRA KOMPAKTNÁ HLAVIČKA (MINIMÁLNA VÝŠKA) --- */
 .additional-page .section-header {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+    display: block !important; /* Zmena z flex na block pre lepšiu kontrolu výšky */
     text-align: center !important;
-    
     width: 100% !important;
-    max-width: 100% !important; 
     
-    /* DEFAULT POZADIE (Biele alebo podľa premennej) */
-    background-color: var(--white, #ffffff) !important;
-    background-image: none !important;
+    /* VYPUNUTIE VŠETKÉHO POZADIA A VÝŠKY */
+    background: none !important;
+    background-color: transparent !important;
+    min-height: 0 !important; 
     
-    margin: 0 0 20px 0 !important; /* Menší margin pod hlavičkou */
-    padding: 20px 10px !important; /* Výrazne zmenšená výška (zo 60px na 30px) */
+    /* EXTRÉMNE MALÝ PADDING */
+    padding: 10px 0 !important; 
+    margin: 0 0 15px 0 !important;
+}
+
+/* ODSTRÁNENIE NADBYTOČNÝCH MEDZIER V TEXTE */
+.additional-page .section-header h1 {
+    margin: 0 0 5px 0 !important; /* Takmer žiadna medzera pod nadpisom */
+    padding: 0 !important;
+    font-size: 1.6rem !important; /* Menšie písmo zaberie menej miesta vertikálne */
+    color: #333333 !important;
+    line-height: 1.1 !important;
+}
+
+.additional-page .section-header p {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0.95rem !important;
+    color: #666666 !important;
+    line-height: 1.3 !important;
 }
 
 /* OBMEDZENIE ŠÍRKY OBSAHU */
