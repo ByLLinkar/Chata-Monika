@@ -725,3 +725,188 @@ footer { padding: 40px 5%; background: var(--dark); color: rgba(255,255,255,0.6)
         text-align: center; /* Justify na mobile casto sposobuje vizualne chyby */
     }
 }
+
+/* --- DOPLNOK PRE ADDITIONAL.HTML (Pridaj na koniec tvojho style.css) --- */
+
+/* Adaptácia hlavného layoutu pre podstránky bez sidebar-u */
+.additional-page .main-layout {
+    display: block; /* Zrušíme grid, aby obsah nebol natlačený doprava */
+    padding-top: 140px; /* Priestor pre fixnú navigáciu */
+}
+
+/* Karty objektov (Časť A / Časť B) */
+.object-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.object-card {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+    border-top: 6px solid var(--primary);
+    transition: var(--transition);
+}
+
+.object-card:hover {
+    transform: translateY(-5px);
+}
+
+.object-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 15px;
+}
+
+.object-header h2 {
+    font-size: 1.6rem;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.object-header h2 i {
+    color: var(--primary);
+}
+
+/* Štítok pod nadpisom (Apartmán s X spálňami) */
+.tag {
+    display: inline-block;
+    background: #eef5ee; /* Jemná zelená */
+    color: var(--primary);
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Rýchle info (Ikony pod nadpisom) */
+.object-info-basic {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+    background: var(--light);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.object-info-basic span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.object-info-basic i {
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+/* Detailné bloky (Spálne / Vybavenie) */
+.detail-block {
+    margin-bottom: 25px;
+}
+
+.detail-block h3 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.detail-list {
+    list-style: none;
+    padding: 0;
+}
+
+.detail-list li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    padding-left: 15px;
+    position: relative;
+}
+
+.detail-list li::before {
+    content: "•";
+    color: var(--accent);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Spoločné vybavenie (Spodná sekcia) */
+.common-amenities {
+    margin-top: 80px;
+    background: var(--light);
+    padding: 60px 40px;
+    border-radius: 40px;
+    text-align: center;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.amenity-item {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: var(--transition);
+}
+
+.amenity-item:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.amenity-item i {
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.amenity-item:hover i {
+    color: var(--white);
+}
+
+/* --- FIX PRE MOBIL (Additional) --- */
+@media (max-width: 768px) {
+    .object-card {
+        padding: 25px 20px;
+    }
+    
+    .common-amenities {
+        padding: 40px 20px;
+        border-radius: 25px;
+    }
+
+    .amenities-grid {
+        grid-template-columns: 1fr 1fr; /* Na mobile dva stĺpce vedľa seba */
+        gap: 10px;
+    }
+
+    .amenity-item {
+        font-size: 0.85rem;
+        padding: 15px 10px;
+    }
+}
+
