@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chata Monika | Ubytovanie v srdci Veľkej Fatry</title>
+    <title>Bližšie informácie | Chata Monika</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -19,7 +19,7 @@
     <nav>
         <div class="nav-container">
             <div class="logo">
-                <a href="#domov">CHATA<span>MONIKA</span></a>
+                <a href="index.html#domov">CHATA<span>MONIKA</span></a>
             </div>
             
             <div class="menu-toggle" id="mobile-menu">
@@ -27,16 +27,98 @@
             </div>
             
             <div class="nav-links">
-                <a href="#domov">Domov</a>
-                <a href="#o-nas">O nás</a>
-                <a href="#cennik">Cenník</a>
+                <a href="index.html#domov">Domov</a>
+                <a href="index.html#o-nas">O nás</a>
+                <a href="index.html#cennik">Cenník</a>
                 <a href="gallery.html">Fotogaléria</a>
-                <a href="#kontakt" class="btn-small">Kontakt</a>
+                <a href="index.html#kontakt" class="btn-small">Kontakt</a>
             </div>
         </div>
     </nav>
 
-    
+    <main class="main-layout" style="margin-top: 50px; padding: 40px 20px;">
+        <article class="content-area" style="width: 100%; max-width: 1200px; margin: 0 auto;">
+            
+            <header class="section-header" style="text-align: center; margin-bottom: 50px;">
+                <h1>Detailné informácie o objektoch</h1>
+                <p>Chata Monika ponuka dve samostatne casti so sukromnymi vchodmi, ktore je mozne prenajat oddelene alebo ako jeden celok pre velke skupiny.</p>
+            </header>
+
+            <div class="object-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+                
+                <div class="object-card" style="background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 6px solid var(--primary);">
+                    <div class="object-header" style="margin-bottom: 20px;">
+                        <h2 style="margin: 0; color: var(--dark);"><i class="fas fa-home"></i> Časť A</h2>
+                        <span class="tag" style="display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-top: 5px;">Apartmán s 3 spálňami</span>
+                    </div>
+                    
+                    <div class="object-info-basic" style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; font-weight: 600; font-size: 0.9rem;">
+                        <span><i class="fas fa-users" style="color: var(--primary);"></i> 10 lôžok + 2 prístelky</span>
+                        <span><i class="fas fa-bed" style="color: var(--primary);"></i> 3 spálne</span>
+                        <span><i class="fas fa-bath" style="color: var(--primary);"></i> 2 kúpeľne, 2 WC</span>
+                    </div>
+
+                    <div class="detail-block" style="margin-bottom: 20px;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;"><i class="fas fa-door-open"></i> Rozloženie spální</h3>
+                        <ul class="detail-list" style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 8px;"><strong>Spálňa 1:</strong> 2× Jednolôžková posteľ, 2× Prístelka (gauč)</li>
+                            <li style="margin-bottom: 8px;"><strong>Spálňa 2:</strong> 2× Jednolôžková posteľ, 1× Manželská posteľ</li>
+                            <li style="margin-bottom: 8px;"><strong>Spálňa 3:</strong> 2× Jednolôžková posteľ, 1× Manželská posteľ</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-block">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;"><i class="fas fa-utensils"></i> Vybavenie</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">Kuchyňa: el. sporák, rura, mikrovlnka, kanvica, chladnička, TV a jedálenské posedenie. WiFi, rádio, CD prehrávač.</p>
+                    </div>
+                </div>
+
+                <div class="object-card" style="background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-top: 6px solid var(--primary);">
+                    <div class="object-header" style="margin-bottom: 20px;">
+                        <h2 style="margin: 0; color: var(--dark);"><i class="fas fa-home"></i> Časť B</h2>
+                        <span class="tag" style="display: inline-block; background: #e8f5e9; color: #2e7d32; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-top: 5px;">Apartmán s 4 spálňami</span>
+                    </div>
+                    
+                    <div class="object-info-basic" style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 25px; font-weight: 600; font-size: 0.9rem;">
+                        <span><i class="fas fa-users" style="color: var(--primary);"></i> 10 lôžok + 2 prístelky</span>
+                        <span><i class="fas fa-bed" style="color: var(--primary);"></i> 4 spálne</span>
+                        <span><i class="fas fa-bath" style="color: var(--primary);"></i> 2 kúpeľne, 2 WC</span>
+                    </div>
+
+                    <div class="detail-block" style="margin-bottom: 20px;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;"><i class="fas fa-door-open"></i> Rozloženie spální</h3>
+                        <ul class="detail-list" style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 8px;"><strong>Spálňa 1:</strong> 2× Jednolôžková posteľ, 1× Manželská posteľ</li>
+                            <li style="margin-bottom: 8px;"><strong>Spálňa 2:</strong> 2× Jednolôžková posteľ</li>
+                            <li style="margin-bottom: 8px;"><strong>Spálňa 3:</strong> 2× Jednolôžková posteľ, 2× Prístelka (gauč)</li>
+                            <li style="margin-bottom: 8px;"><strong>Spálňa 4:</strong> 2× Jednolôžková posteľ</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-block">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;"><i class="fas fa-utensils"></i> Vybavenie</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">Identické vybavenie kuchyne a obytnej časti ako v Apartmáne A. Súkromný vchod zabezpečuje nerušený pobyt.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <section class="common-amenities" style="margin-top: 60px; background: #f9f9f9; padding: 40px; border-radius: 20px;">
+                <h2 style="text-align: center; margin-bottom: 30px;">Krb, biliard či kúpacia kaďa</h2>
+                <div class="amenities-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div style="display: flex; align-items: center; gap: 10px; font-weight: 500;"><i class="fas fa-hot-tub" style="color: var(--primary);"></i> Kúpacia kaďa</div>
+                    <div style="display: flex; align-items: center; gap: 10px; font-weight: 500;"><i class="fas fa-fire" style="color: var(--primary);"></i> Vnútorný krb</div>
+                    <div style="display: flex; align-items: center; gap: 10px; font-weight: 500;"><i class="fas fa-gamepad" style="color: var(--primary);"></i> Biliard</div>
+                    <div style="display: flex; align-items: center; gap: 10px; font-weight: 500;"><i class="fas fa-dog" style="color: var(--primary);"></i> Malé zviera povolené</div>
+                    <div style="display: flex; align-items: center; gap: 10px; font-weight: 500;"><i class="fas fa-parking" style="color: var(--primary);"></i> 4 parkovacie miesta</div>
+                    <div style="display: flex; align-items: center; gap: 10px; font-weight: 500;"><i class="fas fa-fence" style="color: var(--primary);"></i> Objekt je oplotený</div>
+                    <div style="display: flex; align-items: center; gap: 10px; font-weight: 500;"><i class="fas fa-utensils" style="color: var(--primary);"></i> Reštaurácia do 200 m</div>
+                    <div style="display: flex; align-items: center; gap: 10px; font-weight: 500;"><i class="fas fa-wifi" style="color: var(--primary);"></i> WiFi v celom objekte</div>
+                </div>
+            </section>
+
+        </article>
+    </main>
 
     <footer id="footer">
         <div class="footer-grid">
@@ -47,6 +129,7 @@
             </div>
         </div>
     </footer>
+
 <script src="script.js"></script>
 </body>
 </html>
