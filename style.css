@@ -752,7 +752,7 @@ main.main-layout.additional-page {
     max-width: 100% !important; 
     
     /* Sem vlož svoju fotku pozadia */
-    background-image: url('tvoja-fotka.jpg'); 
+    background-image: url('IMG/hero.webp'); 
     background-size: cover;
     background-position: center;
     
