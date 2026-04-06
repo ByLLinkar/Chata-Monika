@@ -741,25 +741,38 @@ main.main-layout.additional-page {
     float: none !important;
 }
 
-/* --- NOVÁ ČASŤ: ÚPRAVA HLAVIČKY (h1 a p pod seba) --- */
+/* --- NOVÁ ČASŤ: ÚPRAVA HLAVIČKY (Sekcia na max, text na stred) --- */
 .additional-page .section-header {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    max-width: 800px !important; /* Toto prinúti text zalomiť sa pod seba */
+    
+    /* Toto roztiahne sekciu na maximum */
+    width: 100% !important;
+    max-width: 100% !important; 
+    
     margin: 0 auto 50px auto !important;
+    padding: 40px 20px !important; /* Vnútorný odstup */
+}
+
+/* Toto obmedzí šírku nadpisu a textu, aby boli pod sebou na stred */
+.additional-page .section-header h1,
+.additional-page .section-header p {
+    max-width: 800px !important; 
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
 }
 
 .additional-page .section-header h1 {
     margin-bottom: 20px !important;
-    width: 100%;
 }
 
 .additional-page .section-header p {
-    width: 100%;
     line-height: 1.6;
 }
+
 /* --------------------------------------------------- */
 
 /* 2. RESET VNUTORNEHO CLANKU */
