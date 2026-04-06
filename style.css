@@ -755,7 +755,7 @@ main.main-layout.additional-page {
     background-image: none !important;
     
     margin: 0 0 20px 0 !important; /* Menší margin pod hlavičkou */
-    padding: 30px 20px !important; /* Výrazne zmenšená výška (zo 60px na 30px) */
+    padding: 20px 10px !important; /* Výrazne zmenšená výška (zo 60px na 30px) */
 }
 
 /* OBMEDZENIE ŠÍRKY OBSAHU */
